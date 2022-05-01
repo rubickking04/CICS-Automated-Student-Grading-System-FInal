@@ -79,7 +79,7 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
         <div class="w3-container w3-padding-16 w3-light-grey">
             <p class="text-start mb-5">{{ __('Name: ')}} <strong>{{ Auth::user()->name }}</strong> </p>
             <p class="text-start mb-5">{{ __('Age: ')}} <strong>20</strong> </p>
-            <p class="text-start mb-5">{{ __('Gender: ')}} <strong>Male</strong> </p>
+            <p class="text-start mb-5">{{ __('Gender: ')}} <strong>{{ Auth::user()->gender }}</strong> </p>
             <table class="w3-hoverable w3-bordered"  style="border-style: solid; margin-bottom: 2rem !important; table-layout:  auto; width: 100%; border-radius:10px;">
                 <thead class="w3-blue" style ="font-size: 16px; letter-spacing: 0.03em;">
                     <tr>
