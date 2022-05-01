@@ -88,7 +88,10 @@
                         <div class="col-md-6">
                             <label for="password" class="col-form-label">{{ __('Password') }}</label>
                             <div class="input-group">
-                                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                <span class="input-group-text" onclick="password_show_hide();">
+                                    <i class="fas fa-eye" id="show_eye"></i>
+                                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                </span>
                             <input id="password" type="password" placeholder="Must be 8-20 characters long." class="form-control @error('password') is-invalid @enderror" name="password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -101,7 +104,10 @@
                         <div class="col-md-6">
                             <label for="password-confirm" class="col-form-label">{{ __('Confirm Password') }}</label>
                             <div class="input-group">
-                                        <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                <span class="input-group-text" onclick="password_show_hides();">
+                                    <i class="fas fa-eye" id="show_eyes"></i>
+                                    <i class="fas fa-eye-slash d-none" id="hide_eyes"></i>
+                                </span>
                             <input id="password-confirm" placeholder="Must same with your password." type="password" class="form-control" name="password_confirmation">
                             </div>
                         </div>
