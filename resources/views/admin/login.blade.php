@@ -60,7 +60,10 @@
                                                 <div class="form-outline mb-1 text-start">
                                                     <label class="form-label" for="password">Password</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                                        <span class="input-group-text" onclick="password_show_hide();">
+                                                            <i class="fas fa-eye" id="show_eye"></i>
+                                                            <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                                        </span>
                                                         <input id="password" type="password" placeholder="Must be 8-20 characters long." class="form-control @error('password') is-invalid @enderror" name="password" />
                                                         @error('password')
                                                             <span class="invalid-feedback" role="alert">
@@ -91,5 +94,22 @@
             </div>
         </div>
     </main>
+    <script>
+        function password_show_hide() {
+            var x = document.getElementById("password");
+            var show_eye = document.getElementById("show_eye");
+            var hide_eye = document.getElementById("hide_eye");
+                hide_eye.classList.remove("d-none");
+                    if (x.type === "password") {
+                        x.type = "text";
+                        show_eye.style.display = "none";
+                        hide_eye.style.display = "block";
+                    } else {
+                        x.type = "password";
+                        show_eye.style.display = "block";
+                        hide_eye.style.display = "none";
+                    }
+        }
+    </script>
 </body>
 </html>
