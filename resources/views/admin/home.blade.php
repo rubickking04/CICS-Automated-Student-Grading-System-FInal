@@ -20,10 +20,9 @@
                             el: '#chart',
                             url: "@chart('my_charts')",
                             hooks: new ChartisanHooks()
+                                .legend()
                                 .colors()
-                                .title('User\'s Data')
-                                .datasets('bar')
-                                .legend({ position: 'bottom' })
+                                .tooltip(),
                         });
                     </script>
                     @endpush

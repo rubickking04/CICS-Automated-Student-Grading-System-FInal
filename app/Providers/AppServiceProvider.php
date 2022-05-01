@@ -24,13 +24,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Charts $charts)
     {
         Paginator::useBootstrapFive();
-        // $charts->register([
-        //     \App\Charts\MyChart::class,
-        //     \App\Charts\SampleChart::class
-        // ]);
+        $charts->register([
+            \App\Charts\MyChart::class,
+        ]);
         if (env('APP_ENV') == "production") {
             URL::forceScheme('https');
         }

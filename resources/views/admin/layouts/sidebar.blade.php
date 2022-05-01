@@ -224,7 +224,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-7 col-sm-6 col-md-auto">
-                                                <h2>{{ App\Models\User::with('studentSched')->count() }}</h2>
+                                                <h2>{{ App\Models\Grade::all()->count() }}</h2>
                                                 <h5>{{ __('Grade\'s') }}</h5>
                                             </div>
                                             <div class="col-lg-5 col-sm-6 col-md-auto d-none d-sm-block">
