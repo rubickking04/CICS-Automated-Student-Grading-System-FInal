@@ -5,14 +5,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card shadow" style="border-radius:20px;">
-                <div class="card-body">
+                <div class="card-body h-auto">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <div id="chart" style="height: 300px;"></div>
+                    <div id="chart" style="height:300px; @media only screen and (max-width: 400px) { height:50px;}"></div>
                         <!-- Your application script -->
                     @push('js')
                     <script>
@@ -21,8 +21,8 @@
                             url: "@chart('my_charts')",
                             hooks: new ChartisanHooks()
                                 .legend()
-                                .colors()
-                                .tooltip(),
+                                .tooltip()
+                                .datasets('pie'),
                         });
                     </script>
                     @endpush

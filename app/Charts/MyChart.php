@@ -30,8 +30,8 @@ class MyChart extends BaseChart
         $teacher= Teacher::all()->count();
         $subject= Subject::all()->count();
         return Chartisan::build()
-            ->labels(['Student', 'Teacher'])
-            ->dataset('Users', [$user, $teacher])
-            ->dataset('Grades and Subjects', [$grade, $subject]);
+            ->labels(['Student',  'Teacher','Subject', 'Grades'])
+            ->dataset('', [$user, $subject, $teacher, $grade]);
+            // ->dataset('Subject', [$subject]);
     }
 }
