@@ -20,7 +20,7 @@
                             el: '#chart',
                             url: "@chart('my_charts')",
                             hooks: new ChartisanHooks()
-                                .legend()
+                                .legend({ top:5 })
                                 .tooltip()
                                 .datasets('pie'),
                         });
