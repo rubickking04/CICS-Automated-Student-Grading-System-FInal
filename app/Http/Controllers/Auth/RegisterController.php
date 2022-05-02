@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use Pusher\Pusher;
 use App\Models\User;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
 use App\Events\TotalUserUpdate;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -82,8 +85,9 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'phone' => $data['phone'],
             'birth_date' =>  $data['birth_date'],
-            'password' => Hash::make($data['password']),
+            'password' => Crypt::encrypt($data['password']),
         ]);
+        Mail::to($data['email'])->send(new WelcomeMail($user));
         Alert::toast('Successfully Registered!', 'success');
         return $user;
     }
