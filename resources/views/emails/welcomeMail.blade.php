@@ -327,15 +327,14 @@ width: 100% !important;
         <td class="content-cell">
             <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                 <h1>Welcome, {{ $user }} </h1>
-                <p class="" style="font-size: 16px;">Your account has registered to {{ config('app.name') }}.</p>
-                <p class="">This is an automatic welcome email notification from {{ config('app.name') }}</p>
+                <p class="" style="font-size: 16px;">Your account has succesfully registered to {{ config('app.name') }}. This is an automatic welcome email notification from CICS Automated Student Grading System</p>
                 <table class="panel" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td class="panel-content">
                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td class="panel-item">
-                        <p><strong>Account Name</strong></p>
+                        <p><strong>Account Credentials: </strong></p>
                         <p>Email: {{ $email }}</p>
                         <p>Password: <strong> {{ $pass }}</strong></p>
                     </td>
@@ -368,7 +367,7 @@ width: 100% !important;
             <table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
                 <td>
-                <p class="" style="font-size: 16px;">Please do not delete this email!</p>
+                <p class="" style="font-size: 16px;">Please do not delete this email or share your account to others!</p>
                 <p>Regards, </p>
                 <p>{{ config('app.name') }}</p>
                 </td>
