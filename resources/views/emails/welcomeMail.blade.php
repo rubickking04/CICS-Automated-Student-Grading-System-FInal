@@ -344,8 +344,6 @@ width: 100% !important;
                     </td>
                     </tr>
                     </table>
-                    <p class="">Please click the button below to login to your MyCICS Student Access Portal.</p>
-
                 <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td align="center">
@@ -365,6 +363,7 @@ width: 100% !important;
                     </td>
                     </tr>
                 </table>
+                <p style="font-size: 14px;">Please click the button above to login to your Student Access Portal. Thank you for using our system. 😊</p>
             </table>
             <table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
