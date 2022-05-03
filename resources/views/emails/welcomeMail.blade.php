@@ -327,8 +327,8 @@ width: 100% !important;
         <td class="content-cell">
             <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                 <h1>Greetings, {{ $user }} </h1>
-                <p class="" style="font-size: 16px;">Your account has successfully registered to MyCICS Student Access Portal.</p>
-                <p class="" style="font-size: 16px;">Attached here is your account access on MyCICS Student Access Portal.</p>
+                <p class="" style="font-size: 16px;">Your account has successfully registered to CICS Automated Student Grading System.</p>
+                <p class="" style="font-size: 16px;">Attached here is your account access on our Student Access Portal.</p>
                 <table class="panel" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td class="panel-content">
@@ -344,6 +344,8 @@ width: 100% !important;
                     </td>
                     </tr>
                     </table>
+                    <p class="">Please click the button below to login to your MyCICS Student Access Portal.</p>
+
                 <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td align="center">
@@ -353,7 +355,6 @@ width: 100% !important;
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td>
-                        <p class=""><strong>Please click the button below to login to your MyCICS Student Access Portal.</strong></p>
                     <a href="{{ route('login') }}" class="button button-{{ $color ?? 'primary' }}"> Click here to login</a>
                     </td>
                     </tr>
