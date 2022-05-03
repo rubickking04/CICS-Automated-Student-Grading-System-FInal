@@ -49,7 +49,7 @@
                 </a>
                 <p class="navbar-brand h5 mb-0 navbar-text text-truncate text-white d-none d-sm-block">{{ __('Student\'s Portal') }}</p>
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-sm-block">
                     <li class="nav-item text-white">
                         <img src="{{ asset('/storage/images/avatar.png') }}" alt="" width="30" height="30" class="rounded-circle">
                         {{ Auth::user()->name }}
