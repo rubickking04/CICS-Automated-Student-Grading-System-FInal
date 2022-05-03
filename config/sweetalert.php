@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'timer' => env('SWEET_ALERT_TIMER', 5000),
+    'timer' => env('SWEET_ALERT_TIMER', 3000),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'height_auto' => env('SWEET_ALERT_HEIGHT_AUTO', true),
+    'height_auto' => env('SWEET_ALERT_HEIGHT_AUTO', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     | for particular modal just use the padding() helper method.
     */
 
-    'padding' => env('SWEET_ALERT_PADDING', '1.25rem'),
+    'padding' => env('SWEET_ALERT_PADDING', '10px'),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,18 +150,7 @@ return [
     |
     */
 
-    'toast_position' => env('SWEET_ALERT_TOAST_POSITION', 'top-end'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Progress Bar
-    |--------------------------------------------------------------------------
-    | If set to true, a progress bar at the bottom of a popup will be shown.
-    | It can be useful with toasts.
-    |
-    */
-
-    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', false),
+    'toast_position' => env('SWEET_ALERT_TOAST_POSITION', 'top'),
 
     /*
     |--------------------------------------------------------------------------
@@ -175,7 +164,7 @@ return [
 
         'autoClose' => env('SWEET_ALERT_MIDDLEWARE_AUTO_CLOSE', false),
 
-        'toast_position' => env('SWEET_ALERT_MIDDLEWARE_TOAST_POSITION', 'top-end'),
+        'toast_position' => env('SWEET_ALERT_MIDDLEWARE_TOAST_POSITION', 'top'),
 
         'toast_close_button' => env('SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON', true),
 

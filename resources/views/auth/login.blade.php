@@ -59,7 +59,7 @@
                                     <img src="{{asset('/storage/images/logo.png')}}" alt="avatar" class="rounded-circle img-fluid border border-4 border-info" height="90px" width="90px">
                                     <h4 class="fw-bolder">{{ __('College of Information and Computing Science') }}</h4></a>
                                     <h5>{{ __('Student\'s Login Form') }}</h5>
-                                    <form  method="POST" action="{{ route('login') }}">
+                                    <form  method="POST" action="{{ route('sign-in') }}">
                                         @csrf
                                         <!-- Email input -->
                                         <div class="form-outline mb-4 text-start">

@@ -34,7 +34,7 @@ class WelcomeMail extends Mailable
         // dd($this->user->name);
         $user = $this->user->name;
         $email = $this->user->email;
-        $pass= $this->user->password;
+        $pass= Crypt::decrypt($this->user->password);
         // dd($pass);
         return $this->subject('CICS Account Credentials')->view('emails.welcomeMail',compact('user', 'pass','email'));
     }

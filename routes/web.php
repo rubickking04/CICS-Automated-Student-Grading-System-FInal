@@ -32,7 +32,7 @@ Route::get('/', function () {
 });
 Route::group(['middleware' => 'prevent-back-history'],function(){
     Auth::routes();
-
+    Route::post('/sign-in', [App\Http\Controllers\Auth\LoginController::class, 'store'])->name('sign-in');
     Route::middleware('auth')->group( function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::get('/grades', [App\Http\Controllers\UserGradeExportController::class, 'index'])->name('grade');

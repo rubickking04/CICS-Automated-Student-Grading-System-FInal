@@ -50,17 +50,17 @@
                 <p class="navbar-brand h5 mb-0 navbar-text text-truncate text-white d-none d-sm-block">{{ __('Student\'s Portal') }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    {{-- <li class="nav-item text-white">
+                    <li class="nav-item text-white">
                         <img src="{{ asset('/storage/images/avatar.png') }}" alt="" width="30" height="30" class="rounded-circle">
                         {{ Auth::user()->name }}
-                    </li> --}}
-                    <li class="nav-item">
+                    </li>
+                    {{-- <li class="nav-item">
                         <form action="{{ route('admin.searchStudent')}}" method="GET" role="search" class="d-flex">
                             @csrf
                             <input class="form-control me-2" type="search" name="search" placeholder="Search Subject" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>

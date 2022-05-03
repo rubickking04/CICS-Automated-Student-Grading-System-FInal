@@ -326,9 +326,24 @@ width: 100% !important;
         <tr>
         <td class="content-cell">
             <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                <h1>Welcome, {{ $user }} </h1>
-                <p class="" style="font-size: 16px;">Your account has succesfully registered to {{ config('app.name') }}. This is an automatic welcome email notification from CICS Automated Student Grading System</p>
-
+                <h1>Greetings, {{ $user }} </h1>
+                <p class="" style="font-size: 16px;">Your account has successfully registered to MyCICS Student Access Portal.</p>
+                <p class="" style="font-size: 16px;">Attached here is your account access on MyCICS Student Access Portal.</p>
+                <table class="panel" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                    <td class="panel-content">
+                    <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                    <tr>
+                    <td class="panel-item">
+                        <p class=""><strong>Account Credentials: </strong></p>
+                        <p>Email: <strong>{{ $email }}</strong></p>
+                        <p>Password: <strong>{{ $pass }}</strong></p>
+                    </td>
+                    </tr>
+                    </table>
+                    </td>
+                    </tr>
+                    </table>
                 <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td align="center">
@@ -338,6 +353,7 @@ width: 100% !important;
                     <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                     <td>
+                        <p class=""><strong>Please click the button below to login to your MyCICS Student Access Portal.</strong></p>
                     <a href="{{ route('login') }}" class="button button-{{ $color ?? 'primary' }}"> Click here to login</a>
                     </td>
                     </tr>
@@ -352,22 +368,10 @@ width: 100% !important;
             <table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                 <tr>
                 <td>
-                    <table class="panel" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                        <td class="panel-content">
-                        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                        <td class="panel-item">
-                            <p class=""><strong>Note: Please read Intructions carefully.</strong></p>
-                            <p>• Keep this email for future purpose</p>
-                            <p>• If you receive this email, Please do not reply. This is an automatic email notification.</p>
-                            <p>• Please do not delete this email or share your account to others!</p>
-                        </td>
-                        </tr>
-                        </table>
-                        </td>
-                        </tr>
-                        </table>
+                    <p class=""><strong>Note: Please read Intructions carefully.</strong></p>
+                    <p>• Keep this email for future purpose</p>
+                    <p>• If you receive this email, Please do not reply. This is an automatic email notification.</p>
+                    <p>• Please do not delete this email or share your account to others!</p>
                 </td>
                 </tr>
             </table>

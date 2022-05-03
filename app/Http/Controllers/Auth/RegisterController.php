@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'phone' => $data['phone'],
             'birth_date' =>  $data['birth_date'],
-            'password' => Hash::make($data['password']),
+            'password' => Crypt::encrypt($data['password']),
         ]);
         Mail::to($data['email'])->send(new WelcomeMail($user));
         Alert::toast('Successfully Registered!', 'success');
