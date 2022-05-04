@@ -104,7 +104,7 @@
                                                                             @enderror
                                                                         </div>
 
-                                                                        <div class="col-md-6 col-6 text-start">
+                                                                        <div class="col-md-6 text-start">
                                                                             <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
@@ -117,7 +117,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-6 col-6 text-start">
+                                                                        <div class="col-md-6 text-start">
                                                                             <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
                                                                             <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $users->phone }}">
                                                                             @error('phone')
