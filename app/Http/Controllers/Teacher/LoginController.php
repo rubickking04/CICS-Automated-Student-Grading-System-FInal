@@ -51,35 +51,34 @@ class LoginController extends Controller
     {
         return view('teacher.login');
     }
-    public function login(Request $request)
-    {
-        $decrypted = $request->input('password');
-        $teacher     = Teacher::where('email', $request->input('email'))->first();
-        if ($this->attemptLogin($request)) {
-            if ($request->hasSession()) {
-                $request->session()->put('auth.password_confirmed_at', time());
-            }
-            Alert::toast('Welcome', 'success');
-            return $this->sendLoginResponse($request);
-        }
-        $this->incrementLoginAttempts($request);
-        return $this->sendMyFailedLoginResponse($request);
-    }
-    protected function sendMyFailedLoginResponse(Request $request)
-    {
-        $errors = [$this->username() => trans('auth.failed')];
-        // Load user from database
-        $user = \App\Models\User::where($this->username(), $request->{$this->username()})->first();
-        if ($user && !Hash::check($request->password, $user->password)) {
-            $errors = ['password' => 'Password is incorrect.'];
-        }
-        if ($request->expectsJson()) {
-            return response()->json($errors, 422);
-        }
-        return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors($errors);
-    }
+    // public function store(Request $request)
+    // {
+    //     $decrypted = $request->input('password');
+    //     $teacher      = Teacher::where('email', $request->input('email'))->first();
+    //     if ($teacher) {
+    //         if (Crypt::decrypt($teacher->password) === $decrypted) {
+    //             Auth::login($teacher);
+    //             Alert::toast('Welcome, '. Auth::user()->name, 'success');
+    //             return $this->sendLoginResponse($request);
+    //         }
+    //     }
+    //     return $this->sendMyFailedLoginResponse($request);
+    //     // dd(Crypt::decrypt($teacher->password));
+    // }
+    // protected function sendMyFailedLoginResponse(Request $request)
+    // {
+    //     $errors = [$this->username() => trans('auth.failed')];
+    //     $teacher = \App\Models\Teacher::where($this->username(), $request->{$this->username()})->first();
+    //     if ($teacher && !Hash::check($request->password, $teacher->password)) {
+    //         $errors = ['password' => 'Password is incorrect.'];
+    //     }
+    //     if ($request->expectsJson()) {
+    //         return response()->json($errors, 422);
+    //     }
+    //     return redirect()->back()
+    //         ->withInput($request->only($this->username(), 'remember'))
+    //         ->withErrors($errors);
+    // }
     /**
      * Get the guard to be used during authentication.
      *

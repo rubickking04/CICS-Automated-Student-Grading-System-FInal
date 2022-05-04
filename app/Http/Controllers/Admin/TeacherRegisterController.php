@@ -35,10 +35,10 @@ class TeacherRegisterController extends Controller
             'phone' => $request->input('phone'),
             'gender' => $request->input('gender'),
             'birth_date' => $request->input('birth_date'),
-            'password' => Crypt::encrypt($request->input('password')),
+            'password' => Hash::make($request->input('password')),
         ]);
         // dd($teacher);
-        Mail::to($teacher['email'])->send(new WelcomeTeacherMail($teacher));
+        // Mail::to($teacher['email'])->send(new WelcomeTeacherMail($teacher));
         Alert::toast('New Teacher Added!', 'success');
         return redirect('/admin/teacher');
     }
