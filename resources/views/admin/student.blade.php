@@ -91,12 +91,10 @@
                                                                     <img src="{{ asset('/storage/images/avatar.png')}}" class="border border-info border-5 rounded-circle img-thumbnail" alt="" height="100px" width="100px">
                                                                 </div>
                                                                 <h2 class="fw-bold mb-0">{{ $users->name }}</h2>
-                                                                <h5 class="my-2 mb-0 ">{{ __('ID Number: ') }}{{ $users->id }}</h5>
-                                                                {{-- <p class="">{{ __('@Email ') }}<span>| </span><span><a href="#" class=" text-decoration-none">{{ $users->email }}</a></span></p> --}}
-                                                                <form action="{{ url('/admin/student/update/'.$users->id) }}" method="POST">
+                                                                <form action="{{ url('/admin/student/updates/'.$users->id) }}" method="POST">
                                                                     @csrf
                                                                     <div class="row mb-3">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-6 text-start">
                                                                             <label for="name" class="col-form-label">{{ __('Name') }}</label>
                                                                             <input id="name" type="text" placeholder="Your name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $users->name }}" >
                                                                             @error('name')
@@ -106,7 +104,7 @@
                                                                             @enderror
                                                                         </div>
 
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-6 col-6 text-start">
                                                                             <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
@@ -119,7 +117,17 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-12">
+                                                                        <div class="col-md-6 col-6 text-start">
+                                                                            <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
+                                                                            <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $users->phone }}">
+                                                                            @error('phone')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                        </div>
+
+                                                                        <div class="col-md-6 text-start">
                                                                             <label for="address" class="col-form-label">{{ __('Address') }}</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
@@ -132,17 +140,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-4">
-                                                                            <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
-                                                                            <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $users->phone }}">
-                                                                            @error('phone')
-                                                                                <span class="invalid-feedback" role="alert">
-                                                                                    <strong>{{ $message }}</strong>
-                                                                                </span>
-                                                                            @enderror
-                                                                        </div>
-
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-6 col-6 text-start">
                                                                             <label for="gender" class="col-form-label">{{ __('Gender') }}</label>
                                                                             <select id="gender" type="text" class="form-control form-select @error('gender') is-invalid @enderror" name="gender" value="">
                                                                                 <option disabled class="text-muted">{{ $users->gender }}</option>
@@ -156,7 +154,7 @@
                                                                             @enderror
                                                                         </div>
 
-                                                                        <div class="col-md-4">
+                                                                        <div class="col-md-6 col-6 text-start">
                                                                             <label for="birth_date" class="col-form-label">{{ __('Birthday') }}</label>
                                                                             <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ $users->birth_date }}">
                                                                             @error('birth_date')
@@ -165,10 +163,10 @@
                                                                                 </span>
                                                                             @enderror
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-primary col-3 fw-bolder">{{ __('Update') }}</button>
                                                                     </div>
-                                                                </form>
-                                                                <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
+                                                                <button type="submit" class="btn btn-primary col-lg-2 col-5 fw-bolder" style="border-radius:20px;">{{ __('Update') }}</button>
+                                                                <button type="button" class="btn btn-danger col-lg-2 col-5" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
+                                                            </form>
                                                             </div>
                                                         </div>
                                                     </div>

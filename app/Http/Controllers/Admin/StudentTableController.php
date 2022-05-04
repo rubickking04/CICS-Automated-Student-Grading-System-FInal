@@ -32,10 +32,10 @@ class StudentTableController extends Controller
             return back()->with('msg', 'ERROR 501 | '. $search . ' Not Found! 😢' );
         }
     }
-    public function update(int $id, Request $request, User $user)
+    public function update(int $id, Request $request)
     {
         $request->validate([
-            'firstname' =>'required|string',
+            'name' =>'required|string',
             'email'=>'required|email|string|max:255',
             'phone' =>'required|string',
             'address' =>'required|string',
@@ -48,9 +48,9 @@ class StudentTableController extends Controller
         $user->address = $request['address'];
         $user->birth_date = $request['birth_date'];
         $user->gender = $request['gender'];
-        // $user->save();
-        // Alert::toast('Updated Successfully!', 'success');
-        // return back();
-        dd($request);
+        $user->save();
+        Alert::toast('Updated Successfully!', 'success');
+        return back();
+        // dd($user);
     }
 }
