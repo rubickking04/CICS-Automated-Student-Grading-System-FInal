@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Teacher\HomeController;
 use App\Http\Controllers\Teacher\GradeController;
 use App\Http\Controllers\UserGradeExportController;
