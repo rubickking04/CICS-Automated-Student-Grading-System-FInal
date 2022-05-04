@@ -51,6 +51,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::middleware('auth:admin')->group(function(){
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
             Route::get('/student', [App\Http\Controllers\Admin\StudentTableController::class, 'index'])->name('admin.student.tables');
+            Route::post('/student/update/{id}', [App\Http\Controllers\Admin\StudentTableController::class, 'update'])->name('admin.student.update');
             Route::get('/student/search', [App\Http\Controllers\Admin\StudentTableController::class, 'search'])->name('admin.searchStudent');
             Route::get('/student/{id}', [App\Http\Controllers\Admin\StudentTableController::class, 'destroy'])->name('admin.student.destroy');
             Route::get('/student/{user:email}', [App\Http\Controllers\Admin\StudentProfileController::class, 'index'])->name('admin.student.profile');

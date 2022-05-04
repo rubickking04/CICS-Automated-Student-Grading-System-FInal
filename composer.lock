@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87d419280ae08fddb61c957d17abd1d1",
+    "content-hash": "7b44faa9a9d1d4760d94244900826c88",
     "packages": [
         {
             "name": "andcarpi/laravel-popper",

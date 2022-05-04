@@ -13,7 +13,7 @@
                     @endif
 
                     <div id="chart" style="height:300px; @media only screen and (max-width: 400px) { height:50px;}"></div>
-                        <!-- Your application script -->
+                    <!-- Your application script -->
                     @push('js')
                     <script>
                         const chart = new Chartisan({

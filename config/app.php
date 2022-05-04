@@ -196,6 +196,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
     ],
 
@@ -213,6 +214,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Popper' => andcarpi\Popper\Facades\Popper::class,
+        'Charts' => ConsoleTVs\Charts\Charts::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

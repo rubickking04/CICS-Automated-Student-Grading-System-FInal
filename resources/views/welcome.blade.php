@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.19.1/mdb.min.js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script>
     // Enable pusher logging - don't include this in production
@@ -36,7 +37,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.2/css/mdb.min.css" rel="stylesheet">
 
 </head>
 
@@ -160,7 +161,7 @@
                     <p class="mb-4 h5 text-center d-none d-sm-block fw-bolder" style="font-family: 'Montserrat', sans-serif;">{{ __('Manage your dashboard anywhere, We’ve got you covered. 😉') }}</p>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-3 shadow-lg h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
+                            <div class="card mb-3 shadow-5-strong hover-shadow h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
                                 <div class="card-body">
                                     <div class="h-100 p-3 text-center">
                                         <h2 class="fw-bold" style="font-family: 'Montserrat', sans-serif;">{{ __('Admin') }}</h2>
@@ -179,13 +180,13 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="{{ route('admin.home') }}" class="btn btn-outline-dark fw-bolder" style="border-radius:20px; font-family: 'Montserrat', sans-serif; font-size: 16px;"><i class="fa-solid fa-right-to-bracket px-2"></i>{{ __('Manage now!') }}</a>
+                                        <a href="{{ route('admin.home') }}" class="btn btn-outline-dark fw-bolder shadow-5-strong" style="border-radius:20px; font-family: 'Montserrat', sans-serif; font-size: 16px;"><i class="fa-solid fa-right-to-bracket px-2"></i>{{ __('Manage now!') }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 ">
-                            <div class="card mb-3 shadow-lg h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
+                            <div class="card mb-3 shadow-5-strong h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
                                 <div class="card-body">
                                     <div class=" p-3 text-center">
                                         <h2 class="fw-bolder" style="font-family: 'Montserrat', sans-serif;">{{ __('Teacher\'s Portal') }}</h2>
@@ -210,7 +211,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-3 shadow h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
+                            <div class="card mb-3 shadow-5-strong h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
                                 <div class="card-body">
                                     <div class=" p-3 text-center ">
                                         <h2 class="fw-bolder" style="font-family: 'Montserrat', sans-serif;">{{ __('Student\'s Portal') }}</h2>

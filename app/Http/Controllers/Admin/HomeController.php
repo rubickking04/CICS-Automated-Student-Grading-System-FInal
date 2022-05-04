@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Events\TotalUserUpdate;
 use App\Http\Controllers\Controller;
+use Charts;
 
 class HomeController extends Controller
 {
