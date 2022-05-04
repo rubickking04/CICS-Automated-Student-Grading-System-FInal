@@ -60,10 +60,6 @@ class LoginController extends Controller
     {
         $errors = [$this->username() => trans('auth.failed')];
         // Load user from database
-        // $admin = \App\Models\Teacher::where($this->username(), $request->{$this->username()})->first();
-        // if ($admin && !Hash::check($request->password, $admin->password)) {
-        //     $errors = ['password' => 'Teacher password is incorrect.'];
-        // }
         $user = \App\Models\User::where($this->username(), $request->{$this->username()})->first();
         if ($user && !Hash::check($request->password, $user->password)) {
             $errors = ['password' => 'The password is incorrect.'];
@@ -74,9 +70,6 @@ class LoginController extends Controller
         return redirect()->back()
             ->withInput($request->only($this->username(), 'remember'))
             ->withErrors($errors);
-        // throw ValidationException::withMessages([
-        //     $this->username() => [trans('auth.failed')],
-        // ]);
     }
     public function logout(Request $request)
     {

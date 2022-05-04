@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Mail\WelcomeTeacherMail;
+use Illuminate\Support\Facades\Hash;
 
 class TeacherRegisterController extends Controller
 {
@@ -31,9 +35,10 @@ class TeacherRegisterController extends Controller
             'phone' => $request->input('phone'),
             'gender' => $request->input('gender'),
             'birth_date' => $request->input('birth_date'),
-            'password' => bcrypt($request->input('password')),
+            'password' => Hash::make($request->input('password')),
         ]);
         // dd($teacher);
+        // Mail::to($teacher['email'])->send(new WelcomeTeacherMail($teacher));
         Alert::toast('New Teacher Added!', 'success');
         return redirect('/admin/teacher');
     }
