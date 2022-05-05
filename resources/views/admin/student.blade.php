@@ -20,6 +20,7 @@
                                     </form>
                                 </div>
                             </div>
+                            @if(count($user)>0)
                             <div class="table-responsive py-3">
                                 <table class="table">
                                     <tbody>
@@ -179,6 +180,21 @@
                                 </table>
                                 {{ $user->links() }}
                             </div>
+                            @else
+                            <div class="col-lg-12 mb-3 ">
+                                <div class="mb-3 py-4">
+                                    <div class="text-center display-1">
+                                        <i class="fa-solid fa-users-slash display-1"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fs-3 text-center">{{ __('No Students Enrolled yet.') }}</h5>
+                                        <div class="text-center">
+                                            <a href="{{ route('admin.register') }}" class="fs-5 text-decoration-none btn btn-primary"><i class="fa-solid fa-user-plus px-2"></i>{{ __('Add Students') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

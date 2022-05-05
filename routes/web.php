@@ -50,6 +50,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::middleware('auth:admin')->group(function(){
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+            Route::get('/register', [App\Http\Controllers\Admin\StudentRegisterController::class, 'index'])->name('admin.register');
             Route::get('/student', [App\Http\Controllers\Admin\StudentTableController::class, 'index'])->name('admin.student.tables');
             Route::post('/student/updates/{id}', [App\Http\Controllers\Admin\StudentTableController::class, 'update'])->name('admin.student.update');
             Route::get('/student/search', [App\Http\Controllers\Admin\StudentTableController::class, 'search'])->name('admin.searchStudent');
@@ -63,7 +64,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/teacher/store',[App\Http\Controllers\Admin\TeacherRegisterController::class, 'store'])->name('admin.teacher.store');
             Route::get('/teacher', [App\Http\Controllers\Admin\TeacherTableController::class, 'index'])->name('admin.teacher.tables');
             Route::get('/teacher/{teach:email}', [App\Http\Controllers\Admin\TeacherProfileController::class, 'index'])->name('admin.teacher.profile');
-            Route::get('/register', [App\Http\Controllers\Admin\StudentRegisterController::class, 'index'])->name('admin.register');
+            Route::get('/subjects', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('admin.subject.tables');
         });
     });
     Route::namespace('teacher')->prefix('teacher')->group( function(){

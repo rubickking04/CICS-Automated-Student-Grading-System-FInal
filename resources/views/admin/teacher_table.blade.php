@@ -13,7 +13,6 @@
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Teacher') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12">
-                                    {{-- <div class="text-end fs-6 py-3 fw-bold card-title">{{ $teach->count() }} {{ Str::plural(' teacher',$teach->count()) }}</div> --}}
                                     <div class="text-end fs-6 py-3 fw-bold card-title">
                                         <form action="{{ route('admin.search')}}" method="GET" role="search" class="d-flex">
                                             @csrf
@@ -23,6 +22,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(count($teach)>0)
                             <div class="table-responsive py-3">
                                 <table class="table">
                                     <tbody>
@@ -173,6 +173,21 @@
                                 </table>
                                 {{ $teach->links() }}
                             </div>
+                            @else
+                            <div class="col-lg-12 mb-3 ">
+                                <div class="mb-3 py-4">
+                                    <div class="text-center display-1">
+                                        <i class="fa-solid fa-users-slash display-1"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fs-3 text-center">{{ __('No Teachers added yet.') }}</h5>
+                                        <div class="text-center">
+                                            <a href="{{ route('admin.teacher.register') }}" class="fs-5 text-decoration-none btn btn-primary"><i class="fa-solid fa-user-plus px-2"></i>{{ __('Add Teachers') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -105,9 +105,9 @@
                         <i class="fs-5 fa-solid fa-table text-white"></i><span class="ms-2  text-white">{{ __('Data Tables') }}</span></a>
                         <div class="collapse container" id="table-collapse">
                             <ul class="btn-toggle-nav nav nav-pills flex-column mb-sm-auto mb-auto mb-0 align-items-start list-unstyled fw-normal pb-2">
-                                <li class="nav-item"><a href="{{ route('admin.student.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Student Table '.'('.App\Models\User::all()->count().')') }}</span></a></li>
-                                <li class="nav-item"><a href="{{ route('admin.teacher.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Teacher\'s Table '.'('.App\Models\Teacher::all()->count().')') }}</span></a></li>
-                                <li class="nav-item"><a href="#" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Teacher\'s Subject Table') }}</span></a></li>
+                                <li class="nav-item"><a href="{{ route('admin.student.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Students Table '.'('.App\Models\User::all()->count().')') }}</span></a></li>
+                                <li class="nav-item"><a href="{{ route('admin.teacher.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Teachers Table '.'('.App\Models\Teacher::all()->count().')') }}</span></a></li>
+                                <li class="nav-item"><a href="{{ route('admin.subject.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Subjects Table'.'('.App\Models\Subject::all()->count().')') }}</span></a></li>
                                 <li class="nav-item"><a href="#" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Student\'s Grade Table') }}</span></a></li>
                             </ul>
                         </div>
