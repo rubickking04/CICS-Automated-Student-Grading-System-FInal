@@ -37,8 +37,8 @@
                                     <td class="text-start" scope="row">{{ $lessons->subject.' - '.$lessons->description }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->midterm }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->finalterm }}</td>
-                                    <td class="text-center" scope="row">{{ $grades }}</td>
-                                    @if($grades <= 2)
+                                    <td class="text-center" scope="row">{{ $result }}</td>
+                                    @if($result <= 2)
                                         <td class="text-center text-primary fw-bold" scope="row">{{ __('PASSED') }}</td>
                                     @else
                                         <td class="text-center  text-danger fw-bold" scope="row">{{ __('FAILED') }}</td>

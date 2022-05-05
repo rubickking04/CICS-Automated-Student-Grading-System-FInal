@@ -16,10 +16,16 @@ class UserGradeExportController extends Controller
     public function index()
     {
         $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->get();
-        $grades= Grade::sum(DB::raw('midterm + finalterm'))/2;
-        return view('grade', compact('lesson', 'grades'));
-        // dd($grades);
-        // dd($hell);
+        foreach ( $lesson as $lessons)
+        {
+            $midterm = $lessons->grades->midterm;
+            $finalterm = $lessons->grades->finalterm;
+            $sum = $midterm + $finalterm;
+            $result = $sum / 2;
+        }
+        // $grades= Grade::sum(DB::raw('midterm + finalterm'))/2;
+        return view('grade', compact('lesson', 'result'));
+        // dd($result);
     }
     public function export()
     {
