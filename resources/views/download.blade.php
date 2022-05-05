@@ -87,6 +87,8 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
                         <td style="font-weight: bold;  text-align: center;">{{ __('Section') }}</td>
                         <td style="font-weight: bold; text-align: center;">{{ __('Midterm') }}</td>
                         <td style="font-weight: bold; text-align: center;">{{ __('Final') }}</td>
+                        <th class="text-center" scope="col">{{ __('Total') }}</th>
+                        <th class="text-center" scope="col">{{ __('Remarks') }}</th>
                         {{-- <td style="font-weight: bold; text-align: center;">{{ __('Instructor') }}</td> --}}
                     </tr>
                 </thead>
@@ -102,7 +104,7 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
-                                    {{-- <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td> --}}
+                                    <td class="text-start" scope="row">{{ __(' ') }}</td>
                                 </tr>
                                 @else
                                 <tr>
@@ -110,7 +112,12 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
                                     <td class="text-center" scope="row">{{ $lessons->section }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->midterm }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->finalterm }}</td>
-                                    {{-- <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td> --}}
+                                    <td class="text-center" scope="row">{{ ($lessons->grades->midterm + $lessons->grades->finalterm)/2 }}</td>
+                                    @if(($lessons->grades->midterm + $lessons->grades->finalterm)/ 2 <= 3)
+                                        <td class="text-center text-primary fw-bold" scope="row">{{ __('PASSED') }}</td>
+                                    @else
+                                        <td class="text-center  text-danger fw-bold" scope="row">{{ __('FAILED') }}</td>
+                                    @endif
                                 </tr>
                                 @endif
                     @endforeach

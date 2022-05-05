@@ -16,16 +16,7 @@ class UserGradeExportController extends Controller
     public function index()
     {
         $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->get();
-        foreach ( $lesson as $lessons)
-        {
-            $midterm = $lessons->grades->midterm;
-            $finalterm = $lessons->grades->finalterm;
-            $sum = $midterm + $finalterm;
-            $result = $sum / 2;
-        }
-        // $grades= Grade::sum(DB::raw('midterm + finalterm'))/2;
-        return view('grade', compact('lesson', 'result'));
-        // dd($result);
+        return view('grade', compact('lesson'));
     }
     public function export()
     {
@@ -33,7 +24,6 @@ class UserGradeExportController extends Controller
         view('grade', compact('lesson'));
         $pdf = PDF::loadView('download',['lesson'=>$lesson]);
         return $pdf->download('My Grades.pdf');
-        // dd($pdf);
     }
     public function viewPdf()
     {
@@ -41,6 +31,5 @@ class UserGradeExportController extends Controller
         view('grade', compact('lesson'));
         $pdf = PDF::loadView('download',['lesson'=>$lesson]);
         return $pdf->stream('My Grades.pdf');
-        // dd($pdf);
     }
 }
