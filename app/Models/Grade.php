@@ -15,7 +15,6 @@ class Grade extends Model
         'teacher_id',
         'midterm',
         'finalterm',
-        'exam',
     ];
     public function student()
     {

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('lesson_id')->references('id')->on('lessons')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('midterm')->nullable();
             $table->string('finalterm')->nullable();
-            $table->string('exam')->nullable();
             $table->timestamps();
         });
     }

@@ -118,9 +118,8 @@
                                                                                                 <table class="table">
                                                                                                     <thead>
                                                                                                         <tr>
-                                                                                                            <th>Midterm</th>
-                                                                                                            <th>Finalterm</th>
-                                                                                                            <th>Exam</th>
+                                                                                                            <th class="text-center" scope="col">Midterm</th>
+                                                                                                            <th class="text-center" scope="col">Finalterm</th>
                                                                                                         </tr>
                                                                                                     </thead>
                                                                                                     <tbody>
@@ -176,27 +175,6 @@
                                                                                                                     </span>
                                                                                                                 @enderror
                                                                                                             </td>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <select name="exam" type="text" placeholder="Unit" class="form-select my-select @error('exam') is-invalid @enderror">
-                                                                                                                    <option disabled selected>{{ __('Choose...') }}</option>
-                                                                                                                    <option value="1.00">{{ __('1.00 = 100% - 98%') }}</option>
-                                                                                                                    <option value="1.25">{{ __('1.25 = 97% - 95%') }}</option>
-                                                                                                                    <option value="1.50">{{ __('1.50 = 94% - 92%') }}</option>
-                                                                                                                    <option value="1.75">{{ __('1.75 = 91% - 89%') }}</option>
-                                                                                                                    <option value="2.00">{{ __('2.00 = 88% - 86%') }}</option>
-                                                                                                                    <option value="2.25">{{ __('2.25 = 85% - 83%') }}</option>
-                                                                                                                    <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
-                                                                                                                    <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
-                                                                                                                    <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
-                                                                                                                    <option value="INC">{{ __('INC') }}</option>
-                                                                                                                    <option value="DROPPED">{{ __('DROPPED') }}</option>
-                                                                                                                </select>
-                                                                                                                @error('exam')
-                                                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                                                        <strong>{{ $message }}</strong>
-                                                                                                                    </span>
-                                                                                                                @enderror
-                                                                                                            </td>
                                                                                                         </tr>
                                                                                                         @else
                                                                                                         <tr>
@@ -205,9 +183,6 @@
                                                                                                             </td>
                                                                                                             <td class="text-center" scope="row">
                                                                                                                 <input type="text" class="form-control" value="{{ $lessons->grades->finalterm }}" readonly>
-                                                                                                            </td>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <input type="text" class="form-control" value="{{ $lessons->grades->exam }}" readonly>
                                                                                                             </td>
                                                                                                         </tr>
                                                                                                         @endif

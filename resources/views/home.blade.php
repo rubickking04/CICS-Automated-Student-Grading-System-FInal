@@ -53,9 +53,8 @@
                                                                         <table class="table">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th>Midterm</th>
-                                                                                    <th>Finalterm</th>
-                                                                                    <th>Exam</th>
+                                                                                    <th class="text-center" scope="col">Midterm</th>
+                                                                                    <th class="text-center" scope="col">Finalterm</th>
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
@@ -65,9 +64,6 @@
                                                                                     </td>
                                                                                     <td class="text-center" scope="row">
                                                                                         <input type="text" class="form-control" value="{{ $lessons->grades->finalterm }}" readonly>
-                                                                                    </td>
-                                                                                    <td class="text-center" scope="row">
-                                                                                        <input type="text" class="form-control" value="{{ $lessons->grades->exam }}" readonly>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -85,7 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="{{ route('destroy',$lessons->id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="text-danger text-end " ><i class="fa-solid fa-trash-can fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}></i></a>
+                                    <a href="{{ route('destroy',$lessons->id) }}" onclick="return confirm('All the records here will be permantly deleted. Are you sure to unenroll to this subject? ')" class="text-danger text-end " ><i class="fa-solid fa-trash-can fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}></i></a>
                                 @endif
                             </div>
                         </div>

@@ -16,7 +16,8 @@
                                     <th class="text-center" scope="col">{{ __('Subject') }}</th>
                                     <th class="text-center" scope="col">{{ __('Midterm') }}</th>
                                     <th class="text-center" scope="col">{{ __('Finalterm') }}</th>
-                                    <th class="text-center" scope="col">{{ __('Exam') }}</th>
+                                    <th class="text-center" scope="col">{{ __('Total') }}</th>
+                                    <th class="text-center" scope="col">{{ __('Remarks') }}</th>
                                     <th class="text-center" scope="col">{{ __('Instructor') }}</th>
                                 </tr>
                             </thead>
@@ -28,6 +29,7 @@
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
                                     <td class="text-start" scope="row">{{ __(' ') }}</td>
+                                    <td class="text-start" scope="row">{{ __(' ') }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td>
                                 </tr>
                                 @else
@@ -35,7 +37,12 @@
                                     <td class="text-start" scope="row">{{ $lessons->subject.' - '.$lessons->description }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->midterm }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->finalterm }}</td>
-                                    <td class="text-center" scope="row">{{ $lessons->grades->exam }}</td>
+                                    <td class="text-center" scope="row">{{ $grades }}</td>
+                                    @if($grades <= 2)
+                                        <td class="text-center text-primary fw-bold" scope="row">{{ __('PASSED') }}</td>
+                                    @else
+                                        <td class="text-center  text-danger fw-bold" scope="row">{{ __('FAILED') }}</td>
+                                    @endif
                                     <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td>
                                 </tr>
                                 @endif

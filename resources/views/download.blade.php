@@ -87,7 +87,6 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
                         <td style="font-weight: bold;  text-align: center;">{{ __('Section') }}</td>
                         <td style="font-weight: bold; text-align: center;">{{ __('Midterm') }}</td>
                         <td style="font-weight: bold; text-align: center;">{{ __('Final') }}</td>
-                        <td style="font-weight: bold; text-align: center;">{{ __('Exam') }}</td>
                         {{-- <td style="font-weight: bold; text-align: center;">{{ __('Instructor') }}</td> --}}
                     </tr>
                 </thead>
@@ -111,7 +110,6 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
                                     <td class="text-center" scope="row">{{ $lessons->section }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->midterm }}</td>
                                     <td class="text-center" scope="row">{{ $lessons->grades->finalterm }}</td>
-                                    <td class="text-center" scope="row">{{ $lessons->grades->exam }}</td>
                                     {{-- <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td> --}}
                                 </tr>
                                 @endif

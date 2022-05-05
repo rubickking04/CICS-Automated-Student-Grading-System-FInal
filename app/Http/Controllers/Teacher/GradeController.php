@@ -22,7 +22,6 @@ class GradeController extends Controller
         $request->validate([
             'midterm' => 'required',
             'finalterm' => 'required',
-            'exam' => 'required',
         ]);
         $user = User::find($id);
         $grade = Grade::create([
@@ -32,7 +31,6 @@ class GradeController extends Controller
             'teacher_id' => Auth::user()->id,
             'midterm' => $request->input('midterm'),
             'finalterm' => $request->input('finalterm'),
-            'exam' => $request->input('exam'),
         ]);
         Mail::to($user->email)->send(new \App\Mail\MyMailTest($grade));
         Alert::toast('Successfully Uploaded!', 'success');
