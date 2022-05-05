@@ -21,4 +21,25 @@ class TeacherTableController extends Controller
         Alert::toast('Removed Successfully!', 'success');
         return back();
     }
+    public function update(int $id, Request $request)
+    {
+        $request->validate([
+            'name' =>'required|string',
+            'email'=>'required|email|string|max:255',
+            'phone' =>'required|string',
+            'address' =>'required|string',
+            'birth_date' =>'required|string',
+        ]);
+        $user= Teacher::find($id);
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->phone = $request['phone'];
+        $user->address = $request['address'];
+        $user->birth_date = $request['birth_date'];
+        $user->gender = $request['gender'];
+        $user->save();
+        Alert::toast('Updated Successfully!', 'success');
+        return back();
+        // dd($user);
+    }
 }

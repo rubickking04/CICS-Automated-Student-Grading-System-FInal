@@ -52,7 +52,7 @@
                                                     <a class="btn btn-outline-primary border-0 fs-5 rounded-circle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
                                                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $teachers->id }}"><i class="fa-solid fa-eye fs-5 px-2"></i>{{ __('View') }}</a></li>
-                                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $teachers->id }}"><i class="fa-solid fa-pen-clip fs-5 px-2"></i>{{ __('Update') }}</a></li>
+                                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenters{{ $teachers->id }}"><i class="fa-solid fa-pen-clip fs-5 px-2"></i>{{ __('Update') }}</a></li>
                                                         <li><a class="dropdown-item" href="{{ url('/admin/teacher/destroy',$teachers->id) }}" onclick="return confirm('Are you sure to remove this teacher?')"><i class="fa-solid fs-5 fa-trash-can px-2"></i>{{ __('Remove') }}</a></li>
                                                     </ul>
                                                 </div>
@@ -70,6 +70,97 @@
                                                                 <h5 class="my-2 mb-0 ">{{ __('ID Number: ') }}{{ $teachers->id }}</h5>
                                                                 <p class="">{{ __('@Email ') }}<span>| </span><span><a href="#" class=" text-decoration-none">{{ $teachers->email }}</a></span></p>
                                                                 <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade modal-alert" id="exampleModalCenters{{ $teachers->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content shadow" style="border-radius:20px;">
+                                                            <div class="modal-header flex-nowrap border-bottom-0">
+                                                                <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body p-4 text-center">
+                                                                <div class="thumb-lg member-thumb mx-auto">
+                                                                    <img src="{{ asset('/storage/images/avatar.png')}}" class="border border-info border-5 rounded-circle img-thumbnail" alt="" height="100px" width="100px">
+                                                                </div>
+                                                                <h2 class="fw-bold mb-0">{{ $teachers->name }}</h2>
+                                                                <form action="{{ url('/admin/teacher/updates/'.$teachers->id) }}" method="POST">
+                                                                    @csrf
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-md-6 text-start">
+                                                                            <label for="name" class="col-form-label">{{ __('Name') }}</label>
+                                                                            <input id="name" type="text" placeholder="Your name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $teachers->name }}" >
+                                                                            @error('name')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                        </div>
+
+                                                                        <div class="col-md-6 text-start">
+                                                                            <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                                                                                <input id="email" type="email" placeholder="yourname@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $teachers->email }}">
+                                                                                @error('email')
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-6 text-start">
+                                                                            <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
+                                                                            <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $teachers->phone }}">
+                                                                            @error('phone')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                        </div>
+
+                                                                        <div class="col-md-6 text-start">
+                                                                            <label for="address" class="col-form-label">{{ __('Address') }}</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
+                                                                            <input id="address" type="text" placeholder="R.T. Lim Boulevard, Baliwasan, Zamboanga City" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $teachers->address }}">
+                                                                            @error('address')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-6 col-6 text-start">
+                                                                            <label for="gender" class="col-form-label">{{ __('Gender') }}</label>
+                                                                            <select id="gender" type="text" class="form-control form-select @error('gender') is-invalid @enderror" name="gender" value="">
+                                                                                <option disabled class="text-muted">{{ $teachers->gender }}</option>
+                                                                                <option value="Male">{{ __('Male') }}</option>
+                                                                                <option value="Female">{{ __('Female') }}</option>
+                                                                            </select>
+                                                                            @error('gender')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                        </div>
+
+                                                                        <div class="col-md-6 col-6 text-start">
+                                                                            <label for="birth_date" class="col-form-label">{{ __('Birthday') }}</label>
+                                                                            <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ $teachers->birth_date }}">
+                                                                            @error('birth_date')
+                                                                                <span class="invalid-feedback" role="alert">
+                                                                                    <strong>{{ $message }}</strong>
+                                                                                </span>
+                                                                            @enderror
+                                                                        </div>
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-primary col-lg-2 col-5 fw-bolder" style="border-radius:20px;">{{ __('Update') }}</button>
+                                                                    <button type="button" class="btn btn-danger col-lg-2 col-5" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>

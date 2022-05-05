@@ -59,6 +59,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/teacher/destroy/{id}', [App\Http\Controllers\Admin\TeacherTableController::class, 'destroy'])->name('admin.teacher.destroy');
             Route::post('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('admin.logout');
             Route::get('/teacher/sign-up',[App\Http\Controllers\Admin\TeacherRegisterController::class, 'index'])->name('admin.teacher.register');
+            Route::post('/teacher/updates/{id}', [App\Http\Controllers\Admin\TeacherTableController::class, 'update'])->name('admin.teacher.update');
             Route::post('/teacher/store',[App\Http\Controllers\Admin\TeacherRegisterController::class, 'store'])->name('admin.teacher.store');
             Route::get('/teacher', [App\Http\Controllers\Admin\TeacherTableController::class, 'index'])->name('admin.teacher.tables');
             Route::get('/teacher/{teach:email}', [App\Http\Controllers\Admin\TeacherProfileController::class, 'index'])->name('admin.teacher.profile');
