@@ -164,9 +164,9 @@
                                                                             @enderror
                                                                         </div>
                                                                     </div>
-                                                                <button type="submit" class="btn btn-primary col-lg-2 col-5 fw-bolder" style="border-radius:20px;">{{ __('Update') }}</button>
-                                                                <button type="button" class="btn btn-danger col-lg-2 col-5" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
-                                                            </form>
+                                                                    <button type="submit" class="btn btn-primary col-lg-2 col-5 fw-bolder" style="border-radius:20px;">{{ __('Update') }}</button>
+                                                                    <button type="button" class="btn btn-danger col-lg-2 col-5" data-bs-dismiss="modal" style="border-radius:20px;">{{ __('Close') }}</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>

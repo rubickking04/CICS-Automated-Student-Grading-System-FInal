@@ -74,8 +74,8 @@
                             </div>
                         </div>
                     <div class="text-end">
-                        <a href="{{ route('viewPdf') }}" class="btn btn-primary"><i class="fa-solid fa-file-pdf fs-5 px-2"></i></a>
-                        <a href="{{ route('export') }}" class="btn btn-success"><i class="fa-solid fs-5 fa-download px-2"></i></a>
+                        <a href="{{ route('viewPdf',Auth::user()->id) }}" class="btn btn-primary"><i class="fa-solid fa-file-pdf fs-5 px-2"></i></a>
+                        <a href="{{ route('export',Auth::user()->id) }}" class="btn btn-success"><i class="fa-solid fs-5 fa-download px-2"></i></a>
                     </div>
                 </div>
                 </div>

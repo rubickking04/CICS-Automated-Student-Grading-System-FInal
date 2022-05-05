@@ -16,7 +16,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="name" class="col-form-label">{{ __('Name') }}</label>
                                 <input id="name" type="text" placeholder="Your name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" >
                                 @error('name')
@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
                                 <div class="input-group">
                                     <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
@@ -39,7 +39,22 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-4">
+                                <label for="student_type" class="col-form-label">{{ __('Student Type') }}</label>
+                                <select name="student_type" id="student_type" class="form-control form-select my-select @error('student_type') is-invalid @enderror" name="student_type" value="{{ old('student_type') }}">
+                                    <option disabled selected>Choose...</option>
+                                    <option value="Regular Student">{{ __('Regular') }}</option>
+                                    <option value="Irregular Student">{{ __('Irregular Student') }}</option>
+                                </select>
+                                    @error('student_type')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
+
+
+                            <div class="col-md-7">
                                 <label for="address" class="col-form-label">{{ __('Address') }}</label>
                                 <div class="input-group">
                                     <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
@@ -50,6 +65,22 @@
                                     </span>
                                 @enderror
                                 </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label for="student_status" class="col-form-label">{{ __('Status of Registration') }}</label>
+                                <select name="student_status" id="student_type" class="form-control form-select my-select @error('student_status') is-invalid @enderror" name="student_status" value="{{ old('student_status') }}">
+                                    <option disabled selected>Choose...</option>
+                                    <option value="New Student">{{ __('New Student') }}</option>
+                                    <option value="Old Student">{{ __('Old Student') }}</option>
+                                    <option value="Shifting Student">{{ __('Shifting Student') }}</option>
+                                    <option value="Transferee">{{ __('Transferee') }}</option>
+                                </select>
+                                    @error('student_status')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
 
                             <div class="col-md-4">

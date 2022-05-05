@@ -37,8 +37,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::get('/grades', [App\Http\Controllers\UserGradeExportController::class, 'index'])->name('grade');
         Route::get('/destroy/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
-        Route::get('/download', [App\Http\Controllers\UserGradeExportController::class, 'export'])->name('export');
-        Route::get('/pdf', [App\Http\Controllers\UserGradeExportController::class, 'viewPdf'])->name('viewPdf');
+        Route::get('/download/{id}', [App\Http\Controllers\UserGradeExportController::class, 'export'])->name('export');
+        Route::get('/pdf/{id}', [App\Http\Controllers\UserGradeExportController::class, 'viewPdf'])->name('viewPdf');
         Route::get('/my-subjects', [App\Http\Controllers\SubjectController::class, 'index'])->name('subject');
         Route::post('/class', [App\Http\Controllers\SubjectController::class, 'store'])->name('class');
         Route::get('/subject/{lesson:uuid}', [App\Http\Controllers\ClassController::class, 'index'])->name('my-class');

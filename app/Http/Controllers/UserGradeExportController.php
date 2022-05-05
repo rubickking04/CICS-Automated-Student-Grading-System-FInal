@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Grade;
 use App\Models\Lesson;
 use App\Exports\UserGrade;
@@ -25,7 +26,7 @@ class UserGradeExportController extends Controller
         $pdf = PDF::loadView('download',['lesson'=>$lesson]);
         return $pdf->download('My Grades.pdf');
     }
-    public function viewPdf()
+    public function viewPdf(User $users)
     {
         $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->get();
         view('grade', compact('lesson'));

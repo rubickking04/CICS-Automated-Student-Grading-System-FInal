@@ -66,6 +66,8 @@ class RegisterController extends Controller
             'gender' => ['required', 'string',],
             'phone' => ['required', 'string', 'max:15'],
             'birth_date' => ['required', 'string', 'max:255'],
+            'student_type'=>['required', 'string', 'max:255'],
+            'student_status'=>['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -84,6 +86,8 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'gender' => $data['gender'],
             'phone' => $data['phone'],
+            'student_type' => $data['student_type'],
+            'student_status' => $data['student_status'],
             'birth_date' =>  $data['birth_date'],
             'password' => Crypt::encrypt($data['password']),
         ]);
