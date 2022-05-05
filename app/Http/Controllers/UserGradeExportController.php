@@ -16,7 +16,7 @@ class UserGradeExportController extends Controller
     public function index()
     {
         $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->get();
-        $grades= Grade::where('user_id', '=', Auth::user()->id)->sum(DB::raw('midterm + finalterm'))/2;
+        $grades= Grade::sum(DB::raw('midterm + finalterm'))/2;
         return view('grade', compact('lesson', 'grades'));
         // dd($grades);
         // dd($hell);
