@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-11">
-                            <div class="row border-bottom border-2 border-primary">
+                            <div class="row border-bottom border-2 border-success">
                                 <div class="col-lg-8 col-md-7 col-sm-6 col-6 d-none d-sm-block">
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Teacher') }}</div>
                                 </div>
@@ -16,8 +16,8 @@
                                     <div class="text-end fs-6 py-3 fw-bold card-title">
                                         <form action="{{ route('admin.search')}}" method="GET" role="search" class="d-flex">
                                             @csrf
-                                            <input class="form-control me-2" type="search" name="search" placeholder="Search Name or Email" aria-label="Search">
-                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                            <input class="form-control me-2 border border-success" type="search" name="search" placeholder="Search Name or Email" aria-label="Search">
+                                            <button class="btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                                         </form>
                                     </div>
                                 </div>
