@@ -16,10 +16,10 @@ class SearchController extends Controller
         $search =$request->input('search');
         $teach= Teacher::where('name','LIKE','%'.$search.'%')->orWhere ('email','LIKE','%'.$search.'%')->paginate(10);
         if (count($teach)>0){
-            return view('admin.teacher_table',compact('teach'));
+            return view('admin.teacher_table',compact('teach','search'));
         }
         else{
-            return back()->with('msg', 'ERROR 501 | '. $search . ' Not Found! 😢' );
+            return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
         }
     }
     public function searchSubject(Request $request)
@@ -35,7 +35,7 @@ class SearchController extends Controller
             return view('admin.subject_Table',compact('subject'));
         }
         else{
-            return back()->with('msg', 'ERROR 501 | '. $search . ' Not Found! 😢' );
+            return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
         }
     }
 }

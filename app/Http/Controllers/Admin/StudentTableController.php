@@ -29,7 +29,7 @@ class StudentTableController extends Controller
             return view('admin.student',compact('user'));
         }
         else{
-            return back()->with('msg', 'ERROR 501 | '. $search . ' Not Found! 😢' );
+            return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
         }
     }
     public function update(int $id, Request $request)

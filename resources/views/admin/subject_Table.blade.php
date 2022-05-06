@@ -30,8 +30,24 @@
                                                     <i class="fa-solid display-1 text-info fa-circle-exclamation"></i>
                                                 </h1>
                                                 <div class="card-body">
-                                                    <p class="h2 fw-bold text-danger text-center">{{ session('msg') }}</p>
-                                                    <h5 class="card-title fw-bold text-center">{{ __('Search Result Not Found') }}</h5>
+                                                    <p class="h2 fw-bold text-danger text-center">{{ __('ERROR 404 | Not Found!') }}</p>
+                                                    <h5 class="card-title fw-bold text-center">{{ session('msg') }}</h5>
+                                                    <p class="card-text fw-bold text-center text-muted">{{ __('Sorry, but the name you were looking for was either not found or does not exist.') }}</p>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 col-12">
+                                                            <div class="row">
+                                                                <form action="{{ route('admin.search.subjects')}}" method="GET" role="search" class="d-flex">
+                                                                    @csrf
+                                                                    <div class="input-group">
+                                                                        <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Please try again to search by Teachers Name, Subject Code or Section" aria-label="Search">
+                                                                        <div class="input-group-text bg-warning">
+                                                                            <button class="btn " type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @else
