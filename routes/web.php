@@ -55,7 +55,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/student/updates/{id}', [App\Http\Controllers\Admin\StudentTableController::class, 'update'])->name('admin.student.update');
             Route::get('/student/search', [App\Http\Controllers\Admin\StudentTableController::class, 'search'])->name('admin.searchStudent');
             Route::get('/student/{id}', [App\Http\Controllers\Admin\StudentTableController::class, 'destroy'])->name('admin.student.destroy');
-            Route::get('/student/{user:email}', [App\Http\Controllers\Admin\StudentProfileController::class, 'index'])->name('admin.student.profile');
             Route::get('/teacher/search', [App\Http\Controllers\Admin\SearchController::class, 'search'])->name('admin.search');
             Route::get('/teacher/destroy/{id}', [App\Http\Controllers\Admin\TeacherTableController::class, 'destroy'])->name('admin.teacher.destroy');
             Route::post('/logout', [App\Http\Controllers\Admin\LoginController::class, 'logout'])->name('admin.logout');
@@ -63,8 +62,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/teacher/updates/{id}', [App\Http\Controllers\Admin\TeacherTableController::class, 'update'])->name('admin.teacher.update');
             Route::post('/teacher/store',[App\Http\Controllers\Admin\TeacherRegisterController::class, 'store'])->name('admin.teacher.store');
             Route::get('/teacher', [App\Http\Controllers\Admin\TeacherTableController::class, 'index'])->name('admin.teacher.tables');
-            Route::get('/teacher/{teach:email}', [App\Http\Controllers\Admin\TeacherProfileController::class, 'index'])->name('admin.teacher.profile');
-            Route::get('/subjects', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('admin.subject.tables');
+            Route::get('/subject', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('admin.subject.tables');
+            Route::get('/subject/search', [App\Http\Controllers\Admin\SearchController::class, 'searchSubject'])->name('admin.search.subjects');
         });
     });
     Route::namespace('teacher')->prefix('teacher')->group( function(){

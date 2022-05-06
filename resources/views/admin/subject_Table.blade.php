@@ -13,9 +13,9 @@
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Subjects') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
-                                    <form action="{{ route('admin.searchStudent')}}" method="GET" role="search" class="d-flex">
+                                    <form action="{{ route('admin.search.subjects')}}" method="GET" role="search" class="d-flex">
                                         @csrf
-                                        <input class="form-control me-2" type="search" name="search" placeholder="Search a Subject" aria-label="Search">
+                                        <input class="form-control me-2" type="search" name="search" placeholder="Search by Name, Subject and Section" aria-label="Search">
                                         <button class="btn btn-outline-success" type="submit">Search</button>
                                     </form>
                                 </div>
@@ -39,7 +39,7 @@
                                                         <img src="{{ asset('/storage/images/avatar.png')}}" alt="" width="40" height="40" class="rounded-circle">
                                                     @endif
                                                 </td>
-                                                <td class="text-start fw-bold text-truncate h6 py-3" scope="row">{{ $subjects->teacher->name.' — '.$subjects->subject.'  '.$subjects->description }}</td>
+                                                <td class="text-start fw-bold text-truncate h6 py-3" scope="row">{{ $subjects->teacher->name.' — '.$subjects->subject.'  '.$subjects->description.' — '.$subjects->section }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
