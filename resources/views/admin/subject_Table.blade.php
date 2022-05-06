@@ -33,7 +33,17 @@
                                                         <img src="{{ asset('/storage/images/avatar.png')}}" alt="" width="40" height="40" class="rounded-circle">
                                                     @endif
                                                 </td>
-                                                <td class="text-start fw-bold text-truncate h6 py-3" scope="row">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</td>
+                                                <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
+                                                    <a href="#" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
+                                                </td>
+                                                <td  class="text-end" scope="row">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-outline-warning border-0 fs-5 rounded-circle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
+                                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                            <li><a class="dropdown-item" href="{{ route('admin.subject.destroy',$subjects->id) }}" onclick="return confirm('Are you sure to remove this subject?')"><i class="fa-solid fs-5 fa-trash-can px-2"></i>{{ __('Remove') }}</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

@@ -49,7 +49,7 @@
                                             <td  class="text-start fw-bold h6 py-3" scope="row">{{ $teachers->name }}</td>
                                             <td  class="text-end" scope="row">
                                                 <div class="dropdown">
-                                                    <a class="btn btn-outline-primary border-0 fs-5 rounded-circle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
+                                                    <a class="btn btn-outline-success border-0 fs-5 rounded-circle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
                                                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $teachers->id }}"><i class="fa-solid fa-eye fs-5 px-2"></i>{{ __('View') }}</a></li>
                                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenters{{ $teachers->id }}"><i class="fa-solid fa-pen-clip fs-5 px-2"></i>{{ __('Update') }}</a></li>
