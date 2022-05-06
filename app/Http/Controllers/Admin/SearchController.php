@@ -26,13 +26,13 @@ class SearchController extends Controller
     {
         $search =$request->input('search');
         $subject= Subject::where('subject','LIKE','%'.$search.'%')
+                ->orWhere('section','LIKE','%'.$search.'%')
                 ->orWhereHas('teacher', function (Builder $query) use ($search)
                 {
                     $query->where('name','LIKE','%'.$search.'%');
-                })
-                ->orWhere('section','LIKE','%'.$search.'%')->paginate(10);
+                })->paginate(10);
         if (count($subject)>0){
-            return view('admin.subject_table',compact('subject'));
+            return view('admin.subject_Table',compact('subject'));
         }
         else{
             return back()->with('msg', 'ERROR 501 | '. $search . ' Not Found! 😢' );
