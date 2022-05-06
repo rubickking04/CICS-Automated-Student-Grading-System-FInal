@@ -24,6 +24,17 @@
                                 <div class="table-responsive py-3">
                                     <table class="table">
                                         <tbody>
+                                            @if (session('msg'))
+                                            <div class="col-lg-12 py-1">
+                                                <h1 class="text-center justify-content-center">
+                                                    <i class="fa-solid display-1 text-info fa-circle-exclamation"></i>
+                                                </h1>
+                                                <div class="card-body">
+                                                    <p class="h2 fw-bold text-danger text-center">{{ session('msg') }}</p>
+                                                    <h5 class="card-title fw-bold text-center">{{ __('Search Result Not Found') }}</h5>
+                                                </div>
+                                            </div>
+                                            @else
                                             @foreach ($subject as $subjects)
                                             <tr>
                                                 <td  class="text-end col-lg-1 col-md-1 col-sm-1 col-1"  scope="row">
@@ -46,6 +57,7 @@
                                                 </td>
                                             </tr>
                                             @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                     {{ $subject->links() }}
