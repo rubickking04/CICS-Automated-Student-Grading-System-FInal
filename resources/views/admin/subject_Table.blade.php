@@ -32,7 +32,7 @@
                                                 <div class="card-body">
                                                     <p class="h2 fw-bold text-danger text-center">{{ __('ERROR 404 | Not Found!') }}</p>
                                                     <h5 class="card-title fw-bold text-center">{{ session('msg') }}</h5>
-                                                    <p class="card-text fw-bold text-center text-muted">{{ __('Sorry, but the name you were looking for was either not found or does not exist.') }}</p>
+                                                    <p class="card-text fw-bold text-center text-muted">{{ __('Sorry, but the query you were looking for was either not found or does not exist.') }}</p>
                                                     <div class="row justify-content-center">
                                                         <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 col-12">
                                                             <div class="row">
