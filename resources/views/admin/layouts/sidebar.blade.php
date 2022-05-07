@@ -40,6 +40,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body style="background-color: #d4dae0">
+    @include('popper::assets')
     @include('sweetalert::alert')
     <div id="app">
         <nav class="navbar navbar-light container-fluid bg-dark shadow  sticky-top">
@@ -108,7 +109,6 @@
                                 <li class="nav-item"><a href="{{ route('admin.student.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Students Table '.'('.App\Models\User::all()->count().')') }}</span></a></li>
                                 <li class="nav-item"><a href="{{ route('admin.teacher.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Teachers Table '.'('.App\Models\Teacher::all()->count().')') }}</span></a></li>
                                 <li class="nav-item"><a href="{{ route('admin.subject.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Subjects Table'.'('.App\Models\Subject::all()->count().')') }}</span></a></li>
-                                <li class="nav-item"><a href="#" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Student\'s Grade Table') }}</span></a></li>
                             </ul>
                         </div>
                     </li>

@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script>
     // Enable pusher logging - don't include this in production
@@ -34,6 +35,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> --}}
@@ -41,6 +43,7 @@
 
 </head>
 <body style="background-color: #d4dae0">
+    @include('popper::assets')
     @include('sweetalert::alert')
     <div id="app">
         <nav class="navbar navbar-light container-fluid bg-dark shadow  sticky-top">
@@ -113,7 +116,6 @@
                                 <li class="nav-item"><a href="{{ route('admin.student.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Students Table '.'('.App\Models\User::all()->count().')') }}</span></a></li>
                                 <li class="nav-item"><a href="{{ route('admin.teacher.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Teachers Table '.'('.App\Models\Teacher::all()->count().')') }}</span></a></li>
                                 <li class="nav-item"><a href="{{ route('admin.subject.tables') }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Subjects Table'.'('.App\Models\Subject::all()->count().')') }}</span></a></li>
-                                <li class="nav-item"><a href="#" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ __('Student\'s Grade Table') }}</span></a></li>
                             </ul>
                         </div>
                     </li>
@@ -163,7 +165,7 @@
         <!-- Chartisan -->
         <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
         @stack('js')
-        @stack('chart')
+        @stack('my')
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
         <script>
             function animateValue(userCount, start, end, duration) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Lesson;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -20,7 +21,7 @@ class SubjectController extends Controller
         $subject = Subject::where('id',$id)->first();
         $subject->delete();
         Alert::toast('Successfully Deleted!', 'success');
-        return back();
+        return redirect()->route('admin.subject.tables');
         // dd($subject);
     }
 }
