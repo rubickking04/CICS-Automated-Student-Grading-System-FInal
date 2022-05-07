@@ -227,7 +227,7 @@
                                                                             <div class="mb-3">
                                                                                 <label class="form-label" id="basic-addon1">{{ __('Class code ') }}</label>
                                                                                 <div class="row">
-                                                                                    <div class="col-lg-10">
+                                                                                    <div class="col-lg-10 mb-3">
                                                                                         <input type="text" class="form-control fw-bold font-monospace" id="myInput" value="{{ $subjects->uuid }}" aria-label="Username" aria-describedby="basic-addon1" readonly>
                                                                                     </div>
                                                                                     <div class="col-lg-2">
