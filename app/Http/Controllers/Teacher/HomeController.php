@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $subject = Subject::where("teacher_id", "=", Auth::user()->id)->get();
+        $subject = Subject::where("teacher_id", "=", Auth::user()->id)->latest()->get();
         return view('teacher.home', compact('subject'));
     }
 }

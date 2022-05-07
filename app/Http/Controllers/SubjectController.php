@@ -14,7 +14,7 @@ class SubjectController extends Controller
 {
     public function index(Subject $subjects)
     {
-        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->get();
+        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->latest()->get();
         return view('subjects',compact('lesson'));
     }
     public function store(Request $request)

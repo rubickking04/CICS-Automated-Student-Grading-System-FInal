@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index(Teacher $teach, Request $request)
     {
-        $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->get();
+        $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->latest()->get();
         return view('home',compact('lesson'));
         // dd($lesson);
     }

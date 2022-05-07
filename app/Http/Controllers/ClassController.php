@@ -13,8 +13,8 @@ class ClassController extends Controller
     public function index(Lesson $lesson, Subject $subjects, Request $request)
     {
         $sub = collect($subjects)->first();
-        $les = Lesson::with('student','grades')->where('subject_id', '=', $lesson->subject_id)->get();
-        $lesson = Lesson::with('teachers', 'student')->where('user_id', '=', Auth::user()->id)->get();
+        $les = Lesson::with('student','grades')->where('subject_id', '=', $lesson->subject_id)->latest()->get();
+        $lesson = Lesson::with('teachers', 'student')->where('user_id', '=', Auth::user()->id)->latest()->get();
         foreach ($les as $lessons)
         {
             $less= $lessons->teachers->name;

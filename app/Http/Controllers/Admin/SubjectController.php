@@ -22,6 +22,5 @@ class SubjectController extends Controller
         $subject->delete();
         Alert::toast('Successfully Deleted!', 'success');
         return redirect()->route('admin.subject.tables');
-        // dd($subject);
     }
 }

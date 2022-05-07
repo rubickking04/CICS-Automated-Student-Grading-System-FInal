@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mb-1">
-            <div class="card " style="border-radius: 20px">
+            <div class="card  shadow" style="border-radius: 20px">
                 <div class="">
                     <div class="card-body">
                         <div class="card-title">
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div class="card" style="border-radius: 20px">
+            <div class="card shadow" style="border-radius: 20px">
                 <div class="">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-11">

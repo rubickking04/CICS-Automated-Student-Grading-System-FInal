@@ -77,11 +77,11 @@
                                                                 <img src="{{ asset('/storage/images/avatar.png')}}" alt="..." width="35" height="35" class="rounded-circle">
                                                             @endif
                                                         </td>
-                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row"><a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }} </a>
+                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row"><a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
                                                             @if (empty($lessons->grades))
                                                                 <span class="text-muted px-1">{{ __(' ') }}</span>
                                                             @else
-                                                                <span class="text-muted px-1"><i class="fa-solid fa-check fs-5"></i></span>
+                                                                <span class="text-muted small px-1"><i class="fa-solid fa-check fs-5"></i><span class="small px-1">{{ $lessons->grades->created_at->diffForHumans() }}</span></span>
                                                             @endif
                                                         </td>
                                                         <td  class="text-end" scope="row">

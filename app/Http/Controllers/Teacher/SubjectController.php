@@ -13,7 +13,7 @@ class SubjectController extends Controller
 {
     public function index()
     {
-        $subject = Subject::where("teacher_id", "=", Auth::user()->id)->get();
+        $subject = Subject::where("teacher_id", "=", Auth::user()->id)->latest()->get();
         return view('teacher.subject', compact('subject'));
     }
     public function store(Subject $subject,Request $request)
