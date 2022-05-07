@@ -30,7 +30,8 @@ class SearchController extends Controller
                 ->orWhereHas('teacher', function (Builder $query) use ($search)
                 {
                     $query->where('name','LIKE','%'.$search.'%');
-                })->paginate(10);
+                })
+                ->latest()->paginate(10);
         if (count($subject)>0){
             return view('admin.subject_Table',compact('subject'));
         }

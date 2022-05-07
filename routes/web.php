@@ -43,11 +43,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/class', [App\Http\Controllers\SubjectController::class, 'store'])->name('class');
         Route::get('/subject/{lesson:uuid}', [App\Http\Controllers\ClassController::class, 'index'])->name('my-class');
     });
-
     Route::namespace('admin')->prefix('admin')->group( function(){
         Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'showLoginForm'])->name('admin.login');
         Route::post('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('admin.login');
-
         Route::middleware('auth:admin')->group(function(){
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
             Route::get('/register', [App\Http\Controllers\Admin\StudentRegisterController::class, 'index'])->name('admin.register');
@@ -72,15 +70,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::namespace('teacher')->prefix('teacher')->group( function(){
         Route::get('/login', [App\Http\Controllers\Teacher\LoginController::class, 'showLoginForm'])->name('teacher.login');
         Route::post('/login', [App\Http\Controllers\Teacher\LoginController::class, 'login'])->name('teacher.login');
-
         Route::middleware('auth:teacher')->group(function(){
             Route::get('/home', [App\Http\Controllers\Teacher\HomeController::class, 'index'])->name('teacher.home');
             Route::get('/subject', [App\Http\Controllers\Teacher\SubjectController::class, 'index'])->name('teacher.subject');
             Route::get('/class/{subjects:uuid}', [App\Http\Controllers\Teacher\ClassController::class, 'index'])->name('teacher.class');
-
             Route::post('/grades/store/{id}', [App\Http\Controllers\Teacher\GradeController::class, 'store'])->name('teacher.grade.store');
             Route::get('/grades/destroy/{id}', [App\Http\Controllers\Teacher\GradeController::class, 'destroy'])->name('teacher.grade.destroy');
-
             Route::get('/class/destroy/{id}', [App\Http\Controllers\Teacher\ClassController::class, 'destroy'])->name('teacher.class.destroy');
             Route::post('/store', [App\Http\Controllers\Teacher\SubjectController::class, 'store'])->name('teacher.store');
             Route::post('/logout', [App\Http\Controllers\Teacher\LoginController::class, 'logout'])->name('teacher.logout');
