@@ -64,7 +64,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/subject/{subjects:uuid}', [App\Http\Controllers\Admin\SubjectDataController::class, 'index'])->name('admin.subject.data');
             Route::get('/subject/delete/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'destroy'])->name('admin.subject.destroy');
             Route::post('/subject/update/{id}', [App\Http\Controllers\Admin\SubjectDataController::class, 'update'])->name('admin.grade.update');
-            // Route::get('/subject/search', [App\Http\Controllers\Admin\SearchController::class, 'searchSubject'])->name('admin.search.subjects');
         });
     });
     Route::namespace('teacher')->prefix('teacher')->group( function(){

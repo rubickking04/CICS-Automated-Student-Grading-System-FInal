@@ -12,13 +12,13 @@
                                 <div class="col-lg-8 col-md-7 col-sm-6 col-6 d-none d-sm-block">
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Subjects') }}</div>
                                 </div>
-                                <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
-                                    {{-- <form action="{{ route('admin.search.subjects') }}" method="GET" role="search" class="d-flex">
+                                {{-- <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
+                                    <form action="{{ route('admin.search.subject') }}" method="GET" role="search" class="d-flex">
                                         @csrf
                                         <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Search by Name, Subject and Section" aria-label="Search">
                                         <button class="btn btn-warning" type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
-                                    </form> --}}
-                                </div>
+                                    </form>
+                                </div> --}}
                             </div>
                             @if(count($subject)>0)
                                 <div class="table-responsive py-3">
@@ -61,18 +61,19 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
-                                                    <a href="{{ route('admin.subject.data',$subjects->uuid) }}" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
+                                                    <a href="#" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
                                                 </td>
-                                                <td  class="text-end" scope="row">
+                                                {{-- <td  class="text-end" scope="row">
                                                     <div class="dropdown">
                                                         <a class="btn btn-outline-warning border-0 fs-5 rounded-circle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></a>
                                                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                             <li><a class="dropdown-item" href="{{ route('admin.subject.destroy',$subjects->id) }}" onclick="return confirm('Are you sure to remove this subject?')"><i class="fa-solid fs-5 fa-trash-can px-2"></i>{{ __('Remove') }}</a></li>
                                                         </ul>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                             @endforeach
+                                            {{-- @endif --}}
                                         </tbody>
                                     </table>
                                     {{ $subject->links() }}
