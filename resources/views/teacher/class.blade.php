@@ -104,13 +104,11 @@
                                                                     <div class="modal-content shadow" style="border-radius:20px;">
                                                                         <div class="modal-body p-4 text-center">
                                                                             <div class="row">
-                                                                                <div class="col-lg-2 col-md-1 col-sm-1 col-1 ms-2">
-                                                                                    <img class="rounded-circle border border-info border-3" src="{{asset('/storage/images/avatar.png')}}" height="80" width="80">
+                                                                                <div class="thumb-lg member-thumb ms-auto">
+                                                                                    <img src="{{ asset('/storage/images/avatar.png')}}" class="border border-info border-5 rounded-circle img-thumbnail" alt="" height="100px" width="100px">
                                                                                 </div>
-                                                                                <div class="col-lg-6 col-md-8 col-sm-8 col-8 ms-lg-3 ms-5 mb-3 py-2">
-                                                                                    <p class="text-start h4">{{ $lessons->student->name }}</p>
-                                                                                    <p class="text-start fs-6">{{ $lessons->student->email }}</p>
-                                                                                </div>
+                                                                                <h2 class="fw-bold mb-0">{{ $lessons->student->name }}</h2>
+                                                                                <h5 class="">{{ __('ID Number: ') }}{{ $lessons->student->id }}</h5>
                                                                                 <div class="container">
                                                                                     <div class="row">
                                                                                         <div class="text-start">
@@ -188,6 +186,7 @@
                                                                                                         @endif
                                                                                                     </tbody>
                                                                                                 </table>
+
                                                                                                 @if (empty($lessons->grades))
                                                                                                     <button type="submit" class="btn btn-primary col-3">{{ __('Upload') }}</button>
                                                                                                     <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>

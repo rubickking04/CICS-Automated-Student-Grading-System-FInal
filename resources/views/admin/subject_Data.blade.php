@@ -81,7 +81,7 @@
                                                             @if (empty($lessons->grades))
                                                                 <span class="text-muted px-1">{{ __(' ') }}</span>
                                                             @else
-                                                                <span class="text-muted small px-1"><i class="fa-solid fa-check fs-5"></i><span class="small px-1">{{ $lessons->grades->created_at->diffForHumans() }}</span></span>
+                                                                <span class="text-muted small px-1"><i class="fa-solid fa-check fs-5"></i></span>
                                                             @endif
                                                         </td>
                                                         <td  class="text-end" scope="row">
@@ -94,14 +94,12 @@
                                                                     <div class="modal-dialog">
                                                                     <div class="modal-content shadow" style="border-radius:20px;">
                                                                         <div class="modal-body p-4 text-center">
+                                                                            <div class="thumb-lg member-thumb ms-auto">
+                                                                                <img src="{{ asset('/storage/images/avatar.png')}}" class="border border-info border-5 rounded-circle img-thumbnail" alt="" height="100px" width="100px">
+                                                                            </div>
+                                                                            <h2 class="fw-bold mb-0">{{ $lessons->student->name }}</h2>
+                                                                            <h5 class="">{{ __('ID Number: ') }}{{ $lessons->student->id }}</h5>
                                                                             <div class="row">
-                                                                                <div class="col-lg-2 col-md-1 col-sm-1 col-1 ms-2">
-                                                                                    <img class="rounded-circle border border-info border-3" src="{{asset('/storage/images/avatar.png')}}" height="80" width="80">
-                                                                                </div>
-                                                                                <div class="col-lg-6 col-md-8 col-sm-8 col-8 ms-lg-3 ms-5 mb-3 py-2">
-                                                                                    <p class="text-start h4">{{ $lessons->student->name }}</p>
-                                                                                    <p class="text-start fs-6">{{ $lessons->student->email }}</p>
-                                                                                </div>
                                                                                 <div class="container">
                                                                                     <div class="row">
                                                                                         <div class="text-start">
@@ -169,13 +167,20 @@
                                                                                                         @endif
                                                                                                     </tbody>
                                                                                                 </table>
-                                                                                                @if (empty($lessons->grades))
-                                                                                                    <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                                                                @if(empty($lessons->grades))
+                                                                                                    <span class="small px-1">{{ __(' ') }}</span>
                                                                                                 @else
-                                                                                                    <button type="submit" class="btn btn-primary col-3">{{ __('Edit') }}</button>
-                                                                                                    <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                                                                    <span class="small px-1 text-muted fw-bold"><i class="fa-solid fa-earth-americas px-2"></i>{{ $lessons->grades->created_at->diffForHumans() }}</span>
                                                                                                 @endif
-                                                                                                </form>
+                                                                                                <div class="text-center">
+                                                                                                    @if (empty($lessons->grades))
+                                                                                                    <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                                                                    @else
+                                                                                                        <button type="submit" class="btn btn-primary col-3">{{ __('Edit') }}</button>
+                                                                                                        <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                                                                                                    @endif
+                                                                                                    </form>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

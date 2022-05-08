@@ -31,21 +31,17 @@
                                 @if (empty($lessons->grades))
                                     <a href="{{ route('destroy',$lessons->id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="text-danger text-end " ><i class="fa-solid fa-trash-can fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}></i></a>
                                 @else
-                                    {{-- <a href="{{ url('/download') }}" class="text-success text-end"><i class="fa-solid fa-download px-1 fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('View'); }}></i></a> --}}
                                     <a href="#" class="text-info text-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}" ><i class="fa-solid fa-eye fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('View'); }}></i></a>
                                     <div class="modal fade modal-alert" id="exampleModalCenter{{ $lessons->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content shadow" style="border-radius:20px;">
-                                                <div class="modal-body">
+                                                <div class="modal-body p-4 text-center">
                                                     <div class="row">
-                                                        <div class="col-lg-2 col-md-1 col-sm-1 ms-2 text-end d-none d-sm-block">
-                                                            <img class="rounded-circle text-end border border-info border-3" src="{{asset('/storage/images/avatar.png')}}" height="75" width="75">
+                                                        <div class="thumb-lg member-thumb ms-auto">
+                                                            <img src="{{ asset('/storage/images/avatar.png')}}" class="border border-info border-5 rounded-circle img-thumbnail" alt="" height="100px" width="100px">
                                                         </div>
-                                                        <div class="col-lg-9 col-md-8 col-sm-8 col-12 ms-lg-3 ms-3 mb-3 py-2">
-                                                            <p class="text-start fw-bold h4">{{ Auth::user()->name }}</p>
-                                                            <p class="text-start fw-bold fs-5">{{ $lessons->subject.' - '.$lessons->description }}</p>
-                                                            <p class="text-start fw-bold fs-5">{{ $lessons->teachers->name }}</p>
-                                                        </div>
+                                                        <h2 class="fw-bold mb-0">{{ Auth::user()->name }}</h2>
+                                                        <h5 class="">{{ __('Email: ') }}{{ Auth::user()->email }}</h5>
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="text-start">
@@ -68,6 +64,11 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        @if(empty($lessons->grades))
+                                                                            <span class="small px-1">{{ __(' ') }}</span>
+                                                                        @else
+                                                                            <span class="small px-1 text-muted fw-bold"><i class="fa-solid fa-earth-americas px-2"></i>{{ $lessons->grades->created_at->diffForHumans() }}</span>
+                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </div>
