@@ -6,7 +6,7 @@
         <div class="col-lg-8 mb-2">
             <div class="card" style="border-radius: 20px;">
                 <div class="card-body">
-                    <div class="">
+                    <div class="container-fluid">
                         <p class="text-muted font-monospace">{{ __('You\'re currently signed in as') }}</p>
                         <div class="row">
                             <div class="col-lg-1 col-md-1 col-sm-1 col-3">
@@ -36,8 +36,8 @@
                 <div class="card-body">
                     <div class="">
                         <p class="h3 ">{{ __('Class code') }}</p>
-                        <div class="container justify-content-center">
-                            <p class="h6 fw-bold font-monospace">{{ __('• Ask your teacher for the unique class code, then enter it here.') }}</p>
+                        <div class="d-flex justify-content-start">
+                            <p class=" fw-bold font-monospace">{{ __('• Ask your teacher for the unique class code, then enter it here.') }}</p>
                         </div>
                         <form action="{{ route('class') }}" method="POST">
                         @csrf
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary col-lg-3 col-4" style="border-radius:30px;">{{ __('Join') }}</button>
-                            <a href="{{ route('home') }}" class="btn btn-danger col-lg-3 col-4" style="border-radius:30px;">{{ __('Cancel') }}</a>
+                            <a href="{{ URL::previous() }}" class="btn btn-danger col-lg-3 col-4" style="border-radius:30px;">{{ __('Cancel') }}</a>
                         </form>
                     </div>
                 </div>

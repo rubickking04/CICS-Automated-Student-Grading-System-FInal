@@ -22,21 +22,4 @@ class SearchController extends Controller
             return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
         }
     }
-    public function searchSubject(Request $request)
-    {
-        $search =$request->input('search');
-        $subject= Subject::where('subject','LIKE','%'.$search.'%')
-                ->orWhere('section','LIKE','%'.$search.'%')
-                ->orWhereHas('teacher', function (Builder $query) use ($search)
-                {
-                    $query->where('name','LIKE','%'.$search.'%');
-                })
-                ->latest()->paginate(10);
-        if (count($subject)>0){
-            return view('admin.subject_Table',compact('subject'));
-        }
-        else{
-            return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
-        }
-    }
 }

@@ -13,18 +13,18 @@
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Subjects') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
-                                    <form action="{{ url('/admin/subject/search') }}" method="GET" role="search" class="d-flex">
+                                    {{-- <form action="{{ route('admin.search.subjects') }}" method="GET" role="search" class="d-flex">
                                         @csrf
                                         <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Search by Name, Subject and Section" aria-label="Search">
                                         <button class="btn btn-warning" type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                             @if(count($subject)>0)
                                 <div class="table-responsive py-3">
                                     <table class="table">
                                         <tbody>
-                                            @if (session('msg'))
+                                            {{-- @if (session('msg'))
                                             <div class="col-lg-12 py-1">
                                                 <h1 class="text-center justify-content-center">
                                                     <i class="fa-solid display-1 text-info fa-circle-exclamation"></i>
@@ -50,7 +50,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @else
+                                            @else --}}
                                             @foreach ($subject as $subjects)
                                             <tr>
                                                 <td  class="text-end col-lg-1 col-md-1 col-sm-1 col-1"  scope="row">
@@ -61,7 +61,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
-                                                    <a href="{{ route('admin.subject.data') }}" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
+                                                    <a href="{{ route('admin.subject.data',$subjects->uuid) }}" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
                                                 </td>
                                                 <td  class="text-end" scope="row">
                                                     <div class="dropdown">
@@ -73,7 +73,6 @@
                                                 </td>
                                             </tr>
                                             @endforeach
-                                            @endif
                                         </tbody>
                                     </table>
                                     {{ $subject->links() }}

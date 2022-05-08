@@ -34,7 +34,7 @@
     @include('popper::assets')
     @include('sweetalert::alert')
     <div id="app">
-        <nav class="navbar navbar-light bg-dark shadow  sticky-top">
+        <nav class="navbar navbar-light bg-dark shadow container-fluid sticky-top">
             <div class="container-fluid">
                 <a class=" navbar-nav navbar-brand" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                     <lord-icon
@@ -47,20 +47,13 @@
                     data-bs-target="#offcanvas">
                     </lord-icon>
                 </a>
-                <p class="navbar-brand h5 mb-0 navbar-text text-truncate text-white d-none d-sm-block">{{ __('Student\'s Portal') }}</p>
+                <p class="navbar-brand h5 mb-0 navbar-text text-truncate text-white">{{ __('Student\'s Portal') }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-sm-block">
                     <li class="nav-item text-white">
                         <img src="{{ asset('/storage/images/avatar.png') }}" alt="" width="30" height="30" class="rounded-circle">
                         {{ Auth::user()->name }}
                     </li>
-                    {{-- <li class="nav-item">
-                        <form action="{{ route('admin.searchStudent')}}" method="GET" role="search" class="d-flex">
-                            @csrf
-                            <input class="form-control me-2" type="search" name="search" placeholder="Search Subject" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </li> --}}
                 </ul>
             </div>
         </nav>
@@ -133,11 +126,9 @@
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col p-2">
-                    @yield('content')
-                </div>
+        <div class="container">
+            <div class="row py-2">
+                @yield('content')
             </div>
         </div>
     </div>
