@@ -9,7 +9,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-11">
                             <div class="row border-bottom border-2 border-warning">
-                                <div class="col-lg-8 col-md-7 col-sm-6 col-6 d-none d-sm-block">
+                                <div class="col-lg-8 col-md-7 col-sm-6 col-6 ">
                                     <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Subjects') }}</div>
                                 </div>
                                 {{-- <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
@@ -61,7 +61,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
-                                                    <a href="#" class="text-decoration-none text-dark">{{ $subjects->section .' — '. $subjects->subject.'  '.$subjects->description.' — '. $subjects->teacher->name }}</a>
+                                                    <a href="#" class="text-decoration-none text-dark">{{ $subjects->subject.' - '.$subjects->section.' by '. $subjects->teacher->name }}</a>
                                                 </td>
                                                 {{-- <td  class="text-end" scope="row">
                                                     <div class="dropdown">
