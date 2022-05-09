@@ -61,7 +61,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
-                                                    <a href="#" class="text-decoration-none text-dark">{{ $subjects->subject.' - '.$subjects->section.' by '. $subjects->teacher->name }}</a>
+                                                    <a href="{{ route('admin.subject.data',$subjects->uuid) }}" class="text-decoration-none text-dark">{{ $subjects->subject.' - '.$subjects->section.' by '. $subjects->teacher->name }}</a>
                                                 </td>
                                                 {{-- <td  class="text-end" scope="row">
                                                     <div class="dropdown">
@@ -98,3 +98,4 @@
     </div>
 </div>
 @endsection
+
