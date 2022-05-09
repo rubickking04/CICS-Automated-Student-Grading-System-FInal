@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="card-title">
                             <p class=" text-primary fw-bold h3">{{ $subject.' - '.$description }}</p>
-                            <p class="fw-bold h5">{{ 'Section - '.$section }}</p>
+                            <p class="fw-bold h5">{{ 'Section - '.$year.''.$section }}</p>
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="input-group mb-2">
