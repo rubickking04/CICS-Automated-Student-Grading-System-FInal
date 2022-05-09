@@ -126,14 +126,14 @@
                             </ul>
                         </div>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link"><span class="text-white text-muted text-uppercase small">{{ __('Archive') }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.home') }}" class="nav-link text-truncate">
                             <i class="fs-5 fa-solid fa-trash text-white"></i><span class="ms-2  text-white">{{ __('Trash') }}</span></a>
-                    </li> --}}
+                    </li>
                 </ul>
                     <hr>
                     <div class="dropdown">
