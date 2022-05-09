@@ -22,6 +22,7 @@ class SubjectController extends Controller
             'description'=>'required|string|max:255',
             'section' => 'required|string|max:255',
             'room' => 'nullable|string|max:255',
+            'yearLevel' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
         ]);
         $subject = Subject::create([
@@ -30,11 +31,10 @@ class SubjectController extends Controller
             'subject' =>$request->input('subject'),
             'room' => $request->input('room'),
             'section' => $request->input('section'),
+            'yearLevel' => $request->input('yearLevel'),
             'description' => $request->input('description'),
         ]);
-        // $subject->uuid
-        // dd($subject);
-        Alert::toast('Successfully Created !', 'success');
+        Alert::toast('Successfully Created!', 'success');
         return redirect('teacher/class/'.$subject->uuid);
     }
 }

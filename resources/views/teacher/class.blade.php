@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="card-title">
                             <p class=" text-primary fw-bold h3">{{ $subjects->subject.' - '.$subjects->description }}</p>
-                            <p class="fw-bold h5">{{ 'Section - '.$subjects->section }}</p>
+                            <p class="fw-bold h5">{{ 'Section - '.$subjects->yearLevel.''.$subjects->section }}</p>
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="input-group mb-2">
@@ -17,8 +17,8 @@
                                         <input type="text" class="form-control  fw-bold font-monospace" id="myInput" value="{{ $subjects->uuid }}" aria-label="Username" aria-describedby="basic-addon1" disabled readonly>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 mb-2">
-                                    <button class="btn btn-secondary col-lg-12 col-sm-6 col-md-6 col-12" onclick="myFunction()" {{ Popper::delay(500,0)->arrow('round')->pop('Copy to clipboard'); }}><i class="fs-5 text-center fa-solid fa-copy px-1"></i>{{ __('Copy to clipboard') }}</button>
+                                <div class="col-lg-6 col-12 mb-2">
+                                    <button class="btn btn-secondary" onclick="myFunction()" {{ Popper::delay(500,0)->arrow('round')->pop('Copy to clipboard'); }}><i class="fs-5 text-center fa-solid fa-copy px-1"></i></button>
                                     @push('js')
                                     <script>
                                         function myFunction() {
@@ -39,9 +39,7 @@
                                         }
                                     </script>
                                     @endpush
-                                </div>
-                                <div class="col-lg-3">
-                                    <a href="{{ route('teacher.class.destroy',$subjects->id) }}" class="btn col-lg-12 col-sm-6 col-md-6 col-12 btn-danger" onclick="return confirm('Are you sure to delete this class?')"><i class="fs-5 fa-solid fa-trash text-white px-2"></i>{{ __('Remove Class') }}</a>
+                                    <a href="{{ route('teacher.class.destroy',$subjects->id) }}" class="btn btn-danger" {{ Popper::delay(500,0)->arrow('round')->pop('Remove'); }} onclick="return confirm('Are you sure to delete this class?')"><i class="fs-5 fa-solid fa-trash text-white px-1"></i></a>
                                 </div>
                             </div>
                         </div>

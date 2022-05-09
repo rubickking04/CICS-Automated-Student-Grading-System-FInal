@@ -51,7 +51,7 @@
                 <a class="navbar-brand navbar-nav mb-0 navbar-brand" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                     <lord-icon src="https://cdn.lordicon.com/wgwcqouc.json" trigger="morph" colors="primary:#ffffff,secondary:#ffffff" stroke="60" style="width:30px;height:30px" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></lord-icon>
                 </a>
-                <p class="navbar-brand navbar-nav mb-0 navbar-text d-none d-lg-block text-truncate text-white">{{ $subjects->subject.' - '.$subjects->description }}</p>
+                <p class="navbar-brand navbar-nav mb-0 navbar-text text-truncate text-white">{{ $subjects->subject.' - '.$subjects->yearLevel.''.$subjects->section }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
                     <li class="nav-item text-white">
@@ -106,7 +106,7 @@
                         <div class="collapse container" id="create-collapse">
                             <ul class="btn-toggle-nav nav nav-pills flex-column mb-sm-auto mb-auto mb-0 align-items-start list-unstyled fw-normal pb-2">
                             @foreach ( $subject as $subjects)
-                                <li class="nav-item"><a href="{{ route('teacher.class',$subjects->uuid) }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ $subjects->subject.' - '.$subjects->section }}</span></a></li>
+                                <li class="nav-item"><a href="{{ route('teacher.class',$subjects->uuid) }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ $subjects->subject.' - '.$subjects->yearLevel.''.$subjects->section }}</span></a></li>
                             @endforeach
                             </ul>
                         </div>

@@ -101,7 +101,7 @@
                         <div class="collapse container" id="create-collapse">
                             <ul class="btn-toggle-nav nav nav-pills flex-column mb-sm-auto mb-auto mb-0 align-items-start list-unstyled fw-normal pb-2">
                             @foreach ( $subject as $subjects)
-                                <li class="nav-item"><a href="{{ route('teacher.class',$subjects->uuid) }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ $subjects->subject.' - '.$subjects->section }}</span></a></li>
+                                <li class="nav-item"><a href="{{ route('teacher.class',$subjects->uuid) }}" class="ms-2 nav-link  text-white text-decoration-none rounded"><i class="fs-5 fa-solid fa-angles-right"></i><span class="ms-2  text-white">{{ $subjects->subject.' - '.$subjects->yearLevel.''.$subjects->section }}</span></a></li>
                             @endforeach
                             </ul>
                         </div>

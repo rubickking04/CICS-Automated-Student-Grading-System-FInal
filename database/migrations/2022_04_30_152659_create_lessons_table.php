@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('uuid')->nullable();
             $table->string('subject')->nullable();
+            $table->string('yearLevel')->nullable();
             $table->string('description')->nullable();
             $table->string('room')->nullable();
             $table->string('section')->nullable();

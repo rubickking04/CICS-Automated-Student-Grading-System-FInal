@@ -38,6 +38,7 @@ class SubjectController extends Controller
                     'uuid' => $sub->uuid,
                     'description' => $sub->description,
                     'subject' => $sub->subject,
+                    'yearLevel' =>$sub->yearLevel,
                     'room' => $sub->room,
                     'section' => $sub->section,
                 ]);

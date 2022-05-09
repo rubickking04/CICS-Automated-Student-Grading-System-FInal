@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->string('subject')->nullable();
             $table->string('description')->nullable();
+            $table->string('yearLevel')->nullable();
             $table->string('room')->nullable();
             $table->string('section')->nullable();
             $table->timestamps();
