@@ -17,7 +17,13 @@ class SearchSubjectController extends Controller
         {
             $query->where('name','LIKE','%'.$search.'%');
         })->paginate(10);
-        return view('admin.subject_Table', compact('subject'));
+        if(count($subject)>0)
+        {
+            return view('admin.subject_Table', compact('subject'));
+        }
+        else{
+            return back()->with('msg', 'We couldn\'t find "'.$search.'" on this page.' );
+        }
     }
 
 }

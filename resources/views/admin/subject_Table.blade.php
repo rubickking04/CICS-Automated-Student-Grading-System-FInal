@@ -10,7 +10,7 @@
                         <div class="col-lg-11 col-11">
                             <div class="row border-bottom border-2 border-warning">
                                 <div class="col-lg-8 col-md-7 col-sm-6 col-6 ">
-                                    <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Subjects') }}</div>
+                                    <div class="text-start py-3 fs-4 fw-bold card-title d-none d-sm-block">{{ __('Subjects') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
                                     <form action="{{ route('admin.subject.search') }}" method="GET" role="search" class="d-flex">
@@ -36,7 +36,7 @@
                                                     <div class="row justify-content-center">
                                                         <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 col-12">
                                                             <div class="row">
-                                                                <form action="{{ route('admin.search.subjects')}}" method="GET" role="search" class="d-flex">
+                                                                <form action="{{ route('admin.subject.search')}}" method="GET" role="search" class="d-flex">
                                                                     @csrf
                                                                     <div class="input-group">
                                                                         <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Please try again to search by Teachers Name, Subject Code or Section" aria-label="Search">
