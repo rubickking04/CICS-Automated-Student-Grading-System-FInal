@@ -15,7 +15,7 @@
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
                                     <form action="{{ route('admin.subject.search') }}" method="GET" role="search" class="d-flex">
                                         @csrf
-                                        <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Search Name, Subject or Section" aria-label="Search">
+                                        <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Search Name, Subject, Year or Section" aria-label="Search">
                                         <button class="btn btn-warning" type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
                                     </form>
                                 </div>
@@ -39,7 +39,7 @@
                                                                 <form action="{{ route('admin.subject.search')}}" method="GET" role="search" class="d-flex">
                                                                     @csrf
                                                                     <div class="input-group">
-                                                                        <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Please try again to search by Teachers Name, Subject Code or Section" aria-label="Search">
+                                                                        <input class="form-control me-2 border border-warning" type="search" name="search" placeholder="Please try again to search by Teachers Name, Subject Code, Year or Section" aria-label="Search">
                                                                         <div class="input-group-text bg-warning">
                                                                             <button class="btn " type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
                                                                         </div>
