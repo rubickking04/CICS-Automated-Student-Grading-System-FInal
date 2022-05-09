@@ -10,6 +10,7 @@ use App\Http\Controllers\Teacher\GradeController;
 use App\Http\Controllers\UserGradeExportController;
 use App\Http\Controllers\Admin\StudentTableController;
 use App\Http\Controllers\Admin\TeacherTableController;
+use App\Http\Controllers\Admin\SearchSubjectController;
 use App\Http\Controllers\Admin\SearchTeacherController;
 use App\Http\Controllers\Admin\StudentProfileController;
 use App\Http\Controllers\Admin\TeacherProfileController;
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/teacher/store',[App\Http\Controllers\Admin\TeacherRegisterController::class, 'store'])->name('admin.teacher.store');
             Route::get('/teacher', [App\Http\Controllers\Admin\TeacherTableController::class, 'index'])->name('admin.teacher.tables');
             Route::get('/subject', [App\Http\Controllers\Admin\SubjectController::class, 'index'])->name('admin.subject.tables');
+            Route::get('/subject/search', [App\Http\Controllers\Admin\SearchSubjectController::class, 'search'])->name('admin.subject.search');
             Route::get('/subject/{subjects:uuid}', [App\Http\Controllers\Admin\SubjectDataController::class, 'index'])->name('admin.subject.data');
             Route::get('/subject/delete/{id}', [App\Http\Controllers\Admin\SubjectController::class, 'destroy'])->name('admin.subject.destroy');
             Route::post('/subject/update/{id}', [App\Http\Controllers\Admin\SubjectDataController::class, 'update'])->name('admin.grade.update');
