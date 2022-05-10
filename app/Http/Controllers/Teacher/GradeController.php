@@ -20,8 +20,9 @@ class GradeController extends Controller
     public function store(int $id,Request $request)
     {
         $request->validate([
-            'midterm' => 'required',
-            'finalterm' => 'required',
+            'midterm' => 'nullable',
+            'finalterm' => 'nullable',
+            'body' => 'required',
         ]);
         $user = User::find($id);
         $grade = Grade::create([
@@ -29,6 +30,7 @@ class GradeController extends Controller
             'subject_id'=>$request->input('subject_id'),
             'user_id' => $user->id,
             'teacher_id' => Auth::user()->id,
+            'request' => $request->input('body'),
             'midterm' => $request->input('midterm'),
             'finalterm' => $request->input('finalterm'),
         ]);
@@ -39,9 +41,18 @@ class GradeController extends Controller
     }
     public function destroy(int $id)
     {
-        $lesson = Lesson::find($id)->delete();
+        $lesson = Lesson::withTrashed()->find($id);
+        $lesson->forceDelete();
         // dd($lesson);
         Alert::toast('Successfully Deleted!', 'success');
+        return back();
+    }
+    public function restore(int $id)
+    {
+        $lesson = Lesson::onlyTrashed()->find($id);
+        $lesson->restore();
+        // dd($lesson);
+        Alert::toast('Successfully Restored!', 'success');
         return back();
     }
 }

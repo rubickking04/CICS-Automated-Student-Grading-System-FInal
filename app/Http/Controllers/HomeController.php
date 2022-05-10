@@ -37,4 +37,10 @@ class HomeController extends Controller
         Alert::toast('Unenrolled Successfully!', 'success');
         return redirect('/home');
     }
+    public function destroySub(int $id)
+    {
+        $lesson = Lesson::find($id)->forceDelete();
+        Alert::toast('Unenrolled Successfully!', 'success');
+        return redirect('/home');
+    }
 }

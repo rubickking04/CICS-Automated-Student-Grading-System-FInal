@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('room')->nullable();
             $table->string('section')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

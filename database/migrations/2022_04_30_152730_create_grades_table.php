@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('teacher_id')->references('id')->on('teachers')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('lesson_id');
             $table->foreign('lesson_id')->references('id')->on('lessons')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('body')->nullable();
             $table->string('midterm')->nullable();
             $table->string('finalterm')->nullable();
             $table->timestamps();

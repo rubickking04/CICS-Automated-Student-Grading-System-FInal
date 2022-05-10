@@ -77,7 +77,12 @@
                                                                 <img src="{{ asset('/storage/images/avatar.png')}}" alt="..." width="35" height="35" class="rounded-circle">
                                                             @endif
                                                         </td>
-                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row"><a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
+                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row">
+                                                            @if($lessons->deleted_at)
+                                                                <a href="#" class="text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
+                                                            @else
+                                                                <a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
+                                                            @endif
                                                             @if (empty($lessons->grades))
                                                                 <span class="text-muted px-1">{{ __(' ') }}</span>
                                                             @else
@@ -133,8 +138,6 @@
                                                                                                                     <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
                                                                                                                     <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
                                                                                                                     <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
-                                                                                                                    <option value="INC">{{ __('INC') }}</option>
-                                                                                                                    <option value="DROPPED">{{ __('DROPPED') }}</option>
                                                                                                                 </select>
                                                                                                                 @error('midterm')
                                                                                                                     <span class="invalid-feedback" role="alert">
@@ -154,8 +157,6 @@
                                                                                                                     <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
                                                                                                                     <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
                                                                                                                     <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
-                                                                                                                    <option value="INC">{{ __('INC') }}</option>
-                                                                                                                    <option value="DROPPED">{{ __('DROPPED') }}</option>
                                                                                                                 </select>
                                                                                                                 @error('finalterm')
                                                                                                                     <span class="invalid-feedback" role="alert">

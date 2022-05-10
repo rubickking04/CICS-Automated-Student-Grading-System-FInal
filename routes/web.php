@@ -37,6 +37,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::middleware('auth')->group( function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::get('/grades', [App\Http\Controllers\UserGradeExportController::class, 'index'])->name('grade');
+        Route::get('/destroyed/{id}', [App\Http\Controllers\HomeController::class, 'destroySub'])->name('destroy.subject');
         Route::get('/destroy/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
         Route::get('/download/{id}', [App\Http\Controllers\UserGradeExportController::class, 'export'])->name('export');
         Route::get('/pdf/{id}', [App\Http\Controllers\UserGradeExportController::class, 'viewPdf'])->name('viewPdf');
@@ -77,6 +78,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/class/{subjects:uuid}', [App\Http\Controllers\Teacher\ClassController::class, 'index'])->name('teacher.class');
             Route::post('/grades/store/{id}', [App\Http\Controllers\Teacher\GradeController::class, 'store'])->name('teacher.grade.store');
             Route::get('/grades/destroy/{id}', [App\Http\Controllers\Teacher\GradeController::class, 'destroy'])->name('teacher.grade.destroy');
+            Route::get('/student/restore/{id}', [App\Http\Controllers\Teacher\GradeController::class, 'restore'])->name('teacher.student.restore');
             Route::get('/class/destroy/{id}', [App\Http\Controllers\Teacher\ClassController::class, 'destroy'])->name('teacher.class.destroy');
             Route::post('/store', [App\Http\Controllers\Teacher\SubjectController::class, 'store'])->name('teacher.store');
             Route::post('/logout', [App\Http\Controllers\Teacher\LoginController::class, 'logout'])->name('teacher.logout');

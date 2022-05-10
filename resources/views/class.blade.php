@@ -20,7 +20,11 @@
                                 <div class="col-lg-3 mb-2">
                                     <button class="btn btn-success col-lg-3 col-sm-2 col-md-2 col-2" onclick="myFunction()" {{ Popper::delay(500,0)->arrow('round')->pop('Copy to clipboard'); }}><i class="fs-5 text-center fa-solid fa-copy px-1"></i></button>
                                     <button class="btn btn-primary col-lg-3 col-sm-2 col-md-2 col-2" {{ Popper::delay(500,0)->arrow('round')->pop('Display'); }} data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fs-5 text-center fa-solid fa-expand px-1"></i></button>
-                                    <a href="{{ route('destroy',$id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="btn btn-danger col-lg-3 col-sm-2 col-md-2 col-2" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}><i class="fs-5 text-center fa-solid fa-trash-can px-1"></i></a>
+                                    @if($grade)
+                                        <a href="{{ route('destroy',$id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="btn btn-danger col-lg-3 col-sm-2 col-md-2 col-2" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}><i class="fs-5 text-center fa-solid fa-trash-can px-1"></i></a>
+                                    @else
+                                        <a href="{{ route('destroy.subject',$id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="btn btn-danger col-lg-3 col-sm-2 col-md-2 col-2" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}><i class="fs-5 text-center fa-solid fa-trash-can px-1"></i></a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="modal fade modal-alert" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

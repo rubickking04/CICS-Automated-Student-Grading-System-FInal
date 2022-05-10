@@ -29,7 +29,7 @@
                         <div class="d-flex justify-content-end px-3">
                             <div class="hstack gap-3">
                                 @if (empty($lessons->grades))
-                                    <a href="{{ route('destroy',$lessons->id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="text-danger text-end " ><i class="fa-solid fa-trash-can fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}></i></a>
+                                    <a href="{{ route('destroy.subject',$lessons->id) }}" onclick="return confirm('Are you sure to unenroll to this subject?')" class="text-danger text-end " ><i class="fa-solid fa-trash-can fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('Unenroll'); }}></i></a>
                                 @else
                                     <a href="#" class="text-info text-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}" ><i class="fa-solid fa-eye fs-3" {{ Popper::delay(500,0)->arrow('round')->pop('View'); }}></i></a>
                                     <div class="modal fade modal-alert" id="exampleModalCenter{{ $lessons->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

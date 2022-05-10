@@ -25,8 +25,9 @@ class ClassController extends Controller
             $section = $lessons->section;
             $id = $lessons->id;
             $year = $lessons->yearLevel;
+            $grade = $lessons->grades;
         }
-        return view('class', compact('lesson','less', 'les', 'teach','uuid', 'subject', 'description','section', 'id', 'year'),['lesson'=>$lesson]);
+        return view('class', compact('lesson','less', 'les', 'teach','uuid', 'subject', 'description','section', 'id', 'year','grade'),['lesson'=>$lesson]);
         // dd($less);
     }
 }

@@ -13,6 +13,7 @@ class Grade extends Model
         'user_id',
         'lesson_id',
         'teacher_id',
+        'body',
         'midterm',
         'finalterm',
     ];

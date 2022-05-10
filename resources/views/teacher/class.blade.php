@@ -75,7 +75,12 @@
                                                                 <img src="{{ asset('/storage/images/avatar.png')}}" alt="..." width="35" height="35" class="rounded-circle">
                                                             @endif
                                                         </td>
-                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row"><a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }} </a>
+                                                        <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row">
+                                                            @if($lessons->deleted_at)
+                                                                <a href="#" class="text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
+                                                            @else
+                                                                <a href="#" class="text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}">{{ $lessons->student->name }}</a>
+                                                            @endif
                                                             @if (empty($lessons->grades))
                                                                 <span class="text-muted px-1">{{ __(' ') }}</span>
                                                             @else
@@ -89,13 +94,17 @@
                                                                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                                                     @if (empty($lessons->grades))
                                                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}"><i class="fa-solid fa-pen-clip px-1"></i>{{ __('Upload Grade') }}</a></li>
-                                                                        <li><a class="dropdown-item" href="{{ route('teacher.grade.destroy',$lessons->id) }}"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li>
+                                                                        <li><a class="dropdown-item" href="{{ url('teacher/grades/destroy/'.$lessons->id) }}"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li>
                                                                     @else
+                                                                        @if ($lessons->deleted_at)
+                                                                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}"><i class="fa-solid fa-eye px-1"></i>{{ __('View Grade') }}</a></li>
+                                                                            <li><a class="dropdown-item" href="{{ url('teacher/student/restore/'.$lessons->id) }}"><i class="fa-solid fa-rotate-left px-1"></i>{{ __('Restore') }}</a></li>
+                                                                            <li><a class="dropdown-item" href="{{ url('teacher/grades/destroy/'.$lessons->id) }}"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li>
+                                                                        @else
                                                                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}"><i class="fa-solid fa-eye px-1"></i>{{ __('View Grade') }}</a></li>
-                                                                        <li><a class="dropdown-item" href="{{ route('teacher.grade.destroy',$lessons->id) }}"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li>
+                                                                        <li><a class="dropdown-item" href="{{ url('teacher/grades/destroy/'.$lessons->id) }}"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li>
+                                                                        @endif
                                                                     @endif
-                                                                    {{-- <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{ $lessons->id }}"><i class="fa-solid fa-pen-clip px-1"></i>{{ __('Upload Grade') }}</a></li>
-                                                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash-can px-1"></i>{{ __('Remove') }}</a></li> --}}
                                                                 </ul>
                                                                 <div class="modal fade modal-alert" id="exampleModalCenter{{ $lessons->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -108,83 +117,97 @@
                                                                                 <h2 class="fw-bold mb-0">{{ $lessons->student->name }}</h2>
                                                                                 <h5 class="">{{ __('ID Number: ') }}{{ $lessons->student->id }}</h5>
                                                                                 <div class="container">
-                                                                                    <div class="row">
-                                                                                        <div class="text-start">
-                                                                                            <div class="table-responsive">
-                                                                                                <table class="table">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th class="text-center" scope="col">Midterm</th>
-                                                                                                            <th class="text-center" scope="col">Finalterm</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody>
-                                                                                                        @if(empty($lessons->grades))
-                                                                                                        <tr>
-                                                                                                            <form action="{{ route('teacher.grade.store',$lessons->user_id) }}" method="POST">
-                                                                                                            @csrf
-                                                                                                            <td class="text-center d-none" scope="row">
-                                                                                                                <input type="text" id="lesson_id" name="lesson_id" value={{ $lessons->id }} readonly>
-                                                                                                            </td>
-                                                                                                            <td class="text-center d-none" scope="row">
-                                                                                                                <input type="text" id="subject_id" name="subject_id" value={{ $lessons->subject_id }} readonly>
-                                                                                                            </td>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <select name="midterm" type="text" placeholder="Unit" class="form-select my-select @error('midterm') is-invalid @enderror">
-                                                                                                                    <option disabled selected>{{ __('Choose...') }}</option>
-                                                                                                                    <option value="1.00">{{ __('1.00 = 100% - 98%') }}</option>
-                                                                                                                    <option value="1.25">{{ __('1.25 = 97% - 95%') }}</option>
-                                                                                                                    <option value="1.50">{{ __('1.50 = 94% - 92%') }}</option>
-                                                                                                                    <option value="1.75">{{ __('1.75 = 91% - 89%') }}</option>
-                                                                                                                    <option value="2.00">{{ __('2.00 = 88% - 86%') }}</option>
-                                                                                                                    <option value="2.25">{{ __('2.25 = 85% - 83%') }}</option>
-                                                                                                                    <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
-                                                                                                                    <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
-                                                                                                                    <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
-                                                                                                                    <option value="INC">{{ __('INC') }}</option>
-                                                                                                                    <option value="DROPPED">{{ __('DROPPED') }}</option>
-                                                                                                                </select>
-                                                                                                                @error('midterm')
-                                                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                                                        <strong>{{ $message }}</strong>
-                                                                                                                    </span>
-                                                                                                                @enderror
-                                                                                                            </td>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <select name="finalterm" type="text" placeholder="Unit" class="form-select my-select @error('finalterm') is-invalid @enderror">
-                                                                                                                    <option disabled selected>{{ __('Choose...') }}</option>
-                                                                                                                    <option value="1.00">{{ __('1.00 = 100% - 98%') }}</option>
-                                                                                                                    <option value="1.25">{{ __('1.25 = 97% - 95%') }}</option>
-                                                                                                                    <option value="1.50">{{ __('1.50 = 94% - 92%') }}</option>
-                                                                                                                    <option value="1.75">{{ __('1.75 = 91% - 89%') }}</option>
-                                                                                                                    <option value="2.00">{{ __('2.00 = 88% - 86%') }}</option>
-                                                                                                                    <option value="2.25">{{ __('2.25 = 85% - 83%') }}</option>
-                                                                                                                    <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
-                                                                                                                    <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
-                                                                                                                    <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
-                                                                                                                    <option value="INC">{{ __('INC') }}</option>
-                                                                                                                    <option value="DROPPED">{{ __('DROPPED') }}</option>
-                                                                                                                </select>
-                                                                                                                @error('finalterm')
-                                                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                                                        <strong>{{ $message }}</strong>
-                                                                                                                    </span>
-                                                                                                                @enderror
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        @else
-                                                                                                        <tr>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <input type="text" class="form-control" value="{{ $lessons->grades->midterm }}" readonly>
-                                                                                                            </td>
-                                                                                                            <td class="text-center" scope="row">
-                                                                                                                <input type="text" class="form-control" value="{{ $lessons->grades->finalterm }}" readonly>
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        @endif
-                                                                                                    </tbody>
-                                                                                                </table>
-
+                                                                                    <form action="{{ route('teacher.grade.store',$lessons->user_id) }}" method="POST">
+                                                                                    @csrf
+                                                                                    <input type="text" class="form-control d-none" id="lesson_id" name="lesson_id" value="{{$lessons->id}}">
+                                                                                    <input type="text" class="form-control d-none" id="subject_id" name="subject_id" value="{{$lessons->subject_id}}">
+                                                                                        <div class="row">
+                                                                                            @if(empty($lessons->grades))
+                                                                                            <div class="text-start">
+                                                                                                <div class="col-lg-12">
+                                                                                                    <label for="body" class="form-label">{{ __('Write message:') }}</label>
+                                                                                                    <textarea type="text" name="body" id="body" class="form-control  @error('body') is-invalid @enderror"  rows="3" placeholder="{{ __('Say something to '.$lessons->student->name) }}"></textarea>
+                                                                                                @error('body')
+                                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                                        <strong>{{ $message }}</strong>
+                                                                                                    </span>
+                                                                                                @enderror
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-lg-6">
+                                                                                                        <label for="body" class="col-form-label">{{ __('Midterm:') }}</label>
+                                                                                                        <select name="midterm" type="text" placeholder="Unit" class="form-select mb-3 my-select @error('midterm') is-invalid @enderror">
+                                                                                                            <option disabled selected>{{ __('Choose...') }}</option>
+                                                                                                            <option value="1.00">{{ __('1.00 = 100% - 98%') }}</option>
+                                                                                                            <option value="1.25">{{ __('1.25 = 97% - 95%') }}</option>
+                                                                                                            <option value="1.50">{{ __('1.50 = 94% - 92%') }}</option>
+                                                                                                            <option value="1.75">{{ __('1.75 = 91% - 89%') }}</option>
+                                                                                                            <option value="2.00">{{ __('2.00 = 88% - 86%') }}</option>
+                                                                                                            <option value="2.25">{{ __('2.25 = 85% - 83%') }}</option>
+                                                                                                            <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
+                                                                                                            <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
+                                                                                                            <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
+                                                                                                        </select>
+                                                                                                        @error('midterm')
+                                                                                                            <span class="invalid-feedback" role="alert">
+                                                                                                                <strong>{{ $message }}</strong>
+                                                                                                            </span>
+                                                                                                        @enderror
+                                                                                                    </div>
+                                                                                                    <div class="col-lg-6">
+                                                                                                        <label for="body" class="col-form-label">{{ __('Final Term:') }}</label>
+                                                                                                        <select name="finalterm" type="text" placeholder="Unit" class="form-select mb-3 my-select @error('finalterm') is-invalid @enderror">
+                                                                                                            <option disabled selected>{{ __('Choose...') }}</option>
+                                                                                                            <option value="1.00">{{ __('1.00 = 100% - 98%') }}</option>
+                                                                                                            <option value="1.25">{{ __('1.25 = 97% - 95%') }}</option>
+                                                                                                            <option value="1.50">{{ __('1.50 = 94% - 92%') }}</option>
+                                                                                                            <option value="1.75">{{ __('1.75 = 91% - 89%') }}</option>
+                                                                                                            <option value="2.00">{{ __('2.00 = 88% - 86%') }}</option>
+                                                                                                            <option value="2.25">{{ __('2.25 = 85% - 83%') }}</option>
+                                                                                                            <option value="2.50">{{ __('2.50 = 82% - 80%') }}</option>
+                                                                                                            <option value="2.75">{{ __('2.75 = 79% - 75%') }}</option>
+                                                                                                            <option value="3.00">{{ __('3.00 = 74% & Below') }}</option>
+                                                                                                        </select>
+                                                                                                        @error('finalterm')
+                                                                                                            <span class="invalid-feedback" role="alert">
+                                                                                                                <strong>{{ $message }}</strong>
+                                                                                                            </span>
+                                                                                                        @enderror
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                @else
+                                                                                                <div class="text-start">
+                                                                                                    <div class="col-lg-12">
+                                                                                                        <label for="body" class="form-label">{{ __('Write message:') }}</label>
+                                                                                                        <textarea type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="{{ $lessons->grades->body }}"></textarea>
+                                                                                                    @error('body')
+                                                                                                        <span class="invalid-feedback" role="alert">
+                                                                                                            <strong>{{ $message }}</strong>
+                                                                                                        </span>
+                                                                                                    @enderror
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-lg-6">
+                                                                                                            <label for="body" class="col-form-label">{{ __('Midterm:') }}</label>
+                                                                                                            <input name="midterm" type="text" placeholder="Unit" class="form-control mb-3 @error('midterm') is-invalid @enderror" readonly value="{{ $lessons->grades->midterm }}">
+                                                                                                            @error('midterm')
+                                                                                                                <span class="invalid-feedback" role="alert">
+                                                                                                                    <strong>{{ $message }}</strong>
+                                                                                                                </span>
+                                                                                                            @enderror
+                                                                                                        </div>
+                                                                                                        <div class="col-lg-6">
+                                                                                                            <label for="body" class="col-form-label">{{ __('Final Term:') }}</label>
+                                                                                                            <input name="finalterm" type="text" placeholder="Unit" class="form-control mb-3  @error('finalterm') is-invalid @enderror" readonly value="{{ $lessons->grades->finalterm }}">
+                                                                                                            @error('finalterm')
+                                                                                                                <span class="invalid-feedback" role="alert">
+                                                                                                                    <strong>{{ $message }}</strong>
+                                                                                                                </span>
+                                                                                                            @enderror
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                @endif
                                                                                                 @if (empty($lessons->grades))
                                                                                                     <button type="submit" class="btn btn-primary col-3">{{ __('Upload') }}</button>
                                                                                                     <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal">{{ __('Close') }}</button>

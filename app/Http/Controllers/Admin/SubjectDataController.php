@@ -16,7 +16,7 @@ class SubjectDataController extends Controller
     {
         $subject = Subject::where("teacher_id", "=", Auth::user()->id)->get();
         $sub = collect($subjects)->first();
-        $lesson = Lesson::with('student','grades')->where('subject_id', $sub)->get();
+        $lesson = Lesson::with('student','grades')->withTrashed()->where('subject_id', $sub)->get();
         return view('admin.subject_Data', compact('subject', 'lesson'), ['subjects' => $subjects]);
     }
     public function update(int $id, Request $request)

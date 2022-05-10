@@ -27,7 +27,7 @@ class SubjectController extends Controller
             return back()->with('msg','This Class Code doesn\'t exists anymore');
         }
         elseif ($sub->exists()){
-            if (Lesson::where('user_id',Auth::user()->id)->where('subject_id', $sub->id)->exists()){
+            if (Lesson::withTrashed()->where('user_id',Auth::user()->id)->where('subject_id', $sub->id)->exists()){
                 return back()->with('msg','This Class Code already exists');
             }
             else {
