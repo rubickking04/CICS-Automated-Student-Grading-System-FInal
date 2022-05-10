@@ -179,7 +179,7 @@
                                                                                                 <div class="text-start">
                                                                                                     <div class="col-lg-12">
                                                                                                         <label for="body" class="form-label">{{ __('Message:') }}</label>
-                                                                                                        <input type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="{{ $lessons->grades->body }}">
+                                                                                                        <textarea type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="">{{ $lessons->grades->body }}</textarea>
                                                                                                     @error('body')
                                                                                                         <span class="invalid-feedback" role="alert">
                                                                                                             <strong>{{ $message }}</strong>
