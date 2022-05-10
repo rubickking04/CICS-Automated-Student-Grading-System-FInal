@@ -47,7 +47,7 @@
                     data-bs-target="#offcanvas">
                     </lord-icon>
                 </a>
-                <p class="navbar-brand h5 mb-0 navbar-text text-truncate text-white">{{ __('Student\'s Portal') }}</p>
+                <p class="navbar-brand mb-0 navbar-text text-truncate text-white">{{ __('Student\'s Portal') }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-sm-block">
                     <li class="nav-item text-white">

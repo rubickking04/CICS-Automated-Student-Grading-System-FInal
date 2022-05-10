@@ -59,12 +59,7 @@
                     data-bs-target="#offcanvas">
                     </lord-icon>
                 </a>
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav navbar-brand me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <h3 class="navbar-brand mb-0 text-white">{{ __('Administrator\'s Dashboard') }}</h3>
-                    </li>
-                </ul>
+                <p class="navbar-brand mb-0 navbar-text text-truncate text-white">{{ __('Administrator\'s Dashboard') }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-sm-block">
                     <li class="nav-item text-white">
