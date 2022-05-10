@@ -178,8 +178,8 @@
                                                                                                 @else
                                                                                                 <div class="text-start">
                                                                                                     <div class="col-lg-12">
-                                                                                                        <label for="body" class="form-label">{{ __('Write message:') }}</label>
-                                                                                                        <textarea type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="{{ $lessons->grades->body }}"></textarea>
+                                                                                                        <label for="body" class="form-label">{{ __('Message:') }}</label>
+                                                                                                        <input type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="{{ $lessons->grades->body }}">
                                                                                                     @error('body')
                                                                                                         <span class="invalid-feedback" role="alert">
                                                                                                             <strong>{{ $message }}</strong>
@@ -189,7 +189,7 @@
                                                                                                     <div class="row">
                                                                                                         <div class="col-lg-6">
                                                                                                             <label for="body" class="col-form-label">{{ __('Midterm:') }}</label>
-                                                                                                            <input name="midterm" type="text" placeholder="Unit" class="form-control mb-3 @error('midterm') is-invalid @enderror" readonly value="{{ $lessons->grades->midterm }}">
+                                                                                                            <input name="midterm" type="text" placeholder="No Grade" class="form-control mb-3 @error('midterm') is-invalid @enderror" readonly value="{{ $lessons->grades->midterm }}">
                                                                                                             @error('midterm')
                                                                                                                 <span class="invalid-feedback" role="alert">
                                                                                                                     <strong>{{ $message }}</strong>
@@ -198,7 +198,7 @@
                                                                                                         </div>
                                                                                                         <div class="col-lg-6">
                                                                                                             <label for="body" class="col-form-label">{{ __('Final Term:') }}</label>
-                                                                                                            <input name="finalterm" type="text" placeholder="Unit" class="form-control mb-3  @error('finalterm') is-invalid @enderror" readonly value="{{ $lessons->grades->finalterm }}">
+                                                                                                            <input name="finalterm" type="text" placeholder="No Grade" class="form-control mb-3  @error('finalterm') is-invalid @enderror" readonly value="{{ $lessons->grades->finalterm }}">
                                                                                                             @error('finalterm')
                                                                                                                 <span class="invalid-feedback" role="alert">
                                                                                                                     <strong>{{ $message }}</strong>

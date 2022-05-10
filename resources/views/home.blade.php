@@ -43,7 +43,38 @@
                                                         <h2 class="fw-bold mb-0">{{ Auth::user()->name }}</h2>
                                                         <h5 class="">{{ __('Email: ') }}{{ Auth::user()->email }}</h5>
                                                         <div class="container">
-                                                            <div class="row">
+                                                            <div class="text-start">
+                                                                <div class="col-lg-12">
+                                                                    <label for="body" class="form-label">{{ __('Message:') }}</label>
+                                                                    <input type="text"  class="form-control  @error('body') is-invalid @enderror" name="body" id="body" rows="3" readonly value="{{ $lessons->grades->body }}">
+                                                                @error('body')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <label for="body" class="col-form-label">{{ __('Midterm:') }}</label>
+                                                                        <input name="midterm" type="text" placeholder="No Grade" class="form-control mb-3 @error('midterm') is-invalid @enderror" readonly value="{{ $lessons->grades->midterm }}">
+                                                                        @error('midterm')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <label for="body" class="col-form-label">{{ __('Final Term:') }}</label>
+                                                                        <input name="finalterm" type="text" placeholder="No Grade" class="form-control mb-3  @error('finalterm') is-invalid @enderror" readonly value="{{ $lessons->grades->finalterm }}">
+                                                                        @error('finalterm')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {{-- <div class="row">
                                                                 <div class="text-start">
                                                                     <div class="table-responsive">
                                                                         <table class="table">
@@ -71,7 +102,7 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
                                                     </div>
                                                     <div class="text-center">

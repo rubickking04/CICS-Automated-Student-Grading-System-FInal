@@ -30,7 +30,7 @@ class GradeController extends Controller
             'subject_id'=>$request->input('subject_id'),
             'user_id' => $user->id,
             'teacher_id' => Auth::user()->id,
-            'request' => $request->input('body'),
+            'body' => $request->input('body'),
             'midterm' => $request->input('midterm'),
             'finalterm' => $request->input('finalterm'),
         ]);
