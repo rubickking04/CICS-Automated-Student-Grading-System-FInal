@@ -50,7 +50,7 @@ class LoginController extends Controller
         if ($user) {
             if (Crypt::decrypt($user->password) == $decrypted) {
                 Auth::login($user);
-                Alert::toast('Welcome, '. Auth::user()->name, 'success')->position('bottom');
+                Alert::toast('Welcome, '. Auth::user()->name, 'success');
                 return $this->sendLoginResponse($request);
             }
         }
