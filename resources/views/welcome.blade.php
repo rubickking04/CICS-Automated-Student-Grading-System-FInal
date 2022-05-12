@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.19.1/mdb.min.js"></script>
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.19.1/mdb.min.js"></script> --}}
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script>
     // Enable pusher logging - don't include this in production
