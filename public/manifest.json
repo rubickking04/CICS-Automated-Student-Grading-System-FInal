@@ -2,10 +2,10 @@
     "name": "College of Information and Computing Science",
     "short_name": "CICS-ACGS",
     "start_url": "/index.php",
-    "background_color": "#6777ef",
+    "background_color": "#42a5f5",
     "description": "Automatic Class Grading System",
     "display": "fullscreen",
-    "theme_color": "#6777ef",
+    "theme_color": "#42a5f5",
     "icons": [
         {
             "src": "logo.png",
