@@ -39,7 +39,7 @@
     {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.2/css/mdb.min.css" rel="stylesheet">
     <!-- PWA  -->
-    <meta name="theme-color" content="#6777ef"/>
+    <meta name="theme-color" content="#42a5f5"/>
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
