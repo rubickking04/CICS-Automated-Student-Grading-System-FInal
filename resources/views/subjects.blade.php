@@ -4,15 +4,15 @@
 <div class="container">
     <div class=" row justify-content-center">
         <div class="col-lg-8 mb-2">
-            <div class="card" style="border-radius: 20px;">
+            <div class="card shadow" style="border-radius: 20px;">
                 <div class="card-body">
                     <div class="container-fluid">
                         <p class="text-muted font-monospace">{{ __('You\'re currently signed in as') }}</p>
                         <div class="row">
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-3">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-3 d-none d-sm-block">
                                 <img class="rounded-circle border border-info border-3" src="{{asset('/storage/images/avatar.png')}}" height="60" width="60">
                             </div>
-                            <div class="col-lg-7 col-md-8 col-sm-8 col-8 ms-lg-3 col-9 mb-3">
+                            <div class="col-lg-7 col-md-8 col-sm-8 ms-lg-3 col-12 mb-3">
                                 <p class="h4">{{ Auth::user()->name }}</p>
                                 <p class="fs-6">{{ Auth::user()->email }}</p>
                             </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-lg-8 mb-3">
-            <div class="card rounded-4" style="border-radius: 20px;">
+            <div class="card rounded-4 shadow" style="border-radius: 20px;">
                 <div class="card-body">
                     <div class="">
                         <p class="h3 ">{{ __('Class code') }}</p>
