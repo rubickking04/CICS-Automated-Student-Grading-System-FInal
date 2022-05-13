@@ -4,7 +4,7 @@
     "start_url": "/index.php",
     "background_color": "#42a5f5",
     "description": "Automatic Class Grading System",
-    "display": "standalone",
+    "display": "fullscreen",
     "theme_color": "#42a5f5",
     "icons": [
         {
