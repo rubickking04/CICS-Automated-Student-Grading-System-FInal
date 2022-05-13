@@ -7,9 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
 <!-- possible content values: default, black or black-translucent -->
-<meta name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent">
-
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

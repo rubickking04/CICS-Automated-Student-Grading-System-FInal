@@ -25,12 +25,5 @@
             "type": "image/png",
             "purpose": "any maskable"
         }
-        ,
-        {
-            "src": "2.png",
-            "sizes": "44x44",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
     ]
 }
