@@ -56,5 +56,5 @@ var returnFromCache = function (request) {
 window.navigator.standalone
 // on Android Chrome
 window.matchMedia(
-    '(display-mode: fullscreen)'
+    '(display-mode: standalone)'
 ).matches
