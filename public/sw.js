@@ -54,8 +54,7 @@ var returnFromCache = function (request) {
 };
 // on iOS Safari
 window.navigator.standalone
-
 // on Android Chrome
 window.matchMedia(
-  '(display-mode: standalone)'
+    '(display-mode: standalone)'
 ).matches
