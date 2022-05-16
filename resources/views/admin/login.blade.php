@@ -39,7 +39,7 @@
 </head>
 <body style="background-color: #d1d5d6">
     <main id="app">
-        <div class="container py-4">
+        <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="card shadow" style="border-radius: 20px">

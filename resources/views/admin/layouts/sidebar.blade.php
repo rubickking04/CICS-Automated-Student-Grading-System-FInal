@@ -47,8 +47,8 @@
     @include('popper::assets')
     @include('sweetalert::alert')
     <div id="app">
-        <nav class="navbar navbar-light container-fluid bg-dark shadow  sticky-top">
-            <div class="container-fluid">
+        <nav class="navbar navbar-light bg-dark shadow  sticky-top">
+            <div class="container">
                 <a class="navbar-brand" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                     <lord-icon
                     src="https://cdn.lordicon.com/wgwcqouc.json"
@@ -61,7 +61,7 @@
                     </lord-icon>
                 </a>
                 <!-- Left Side Of Navbar -->
-                <p class="navbar-brand mb-0 navbar-text d-none d-sm-block text-truncate text-white">{{ __('Administrator\'s Dashboard') }}</p>
+                <p class="navbar-brand mb-0 navbar-text text-truncate text-white">{{ __('Administrator\'s Dashboard') }}</p>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-sm-block">
                     <li class="nav-item text-white">
@@ -152,9 +152,9 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col p-2">
+                <div class="py-2">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-6">

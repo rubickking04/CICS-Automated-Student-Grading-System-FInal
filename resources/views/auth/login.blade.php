@@ -43,7 +43,7 @@
 <body style="background-color: #d1d5d6">
     @include('sweetalert::alert')
 <div id="app">
-    <div class="container py-4">
+    <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card shadow" style="border-radius: 20px">

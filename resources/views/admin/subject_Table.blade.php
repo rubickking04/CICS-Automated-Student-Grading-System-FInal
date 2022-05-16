@@ -10,7 +10,7 @@
                         <div class="col-lg-11 col-11">
                             <div class="row border-bottom border-2 border-warning">
                                 <div class="col-lg-8 col-md-7 col-sm-6 col-6 ">
-                                    <div class="text-start py-3 fs-4 fw-bold card-title d-none d-sm-block">{{ __('Subjects') }}</div>
+                                    <div class="text-start py-3 fs-4 fw-bold card-title d-none d-sm-block">{{ __('Subjects Table') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
                                     <form action="{{ route('admin.subject.search') }}" method="GET" role="search" class="d-flex">
@@ -53,13 +53,6 @@
                                             @else
                                             @foreach ($subject as $subjects)
                                             <tr>
-                                                <td  class="text-end col-lg-1 col-md-1 col-sm-1 col-1"  scope="row">
-                                                    @if($subjects->teacher->image)
-                                                        <img src="{{ asset('/storage/images/'.$subjects->teacher->image)}}"  width="40" height="40" class="rounded-circle">
-                                                    @else
-                                                        <img src="{{ asset('/storage/images/avatar.png')}}" alt="" width="40" height="40" class="rounded-circle">
-                                                    @endif
-                                                </td>
                                                 <td class="text-start fw-bold text-truncate h6 py-3" scope="row">
                                                     <a href="{{ route('admin.subject.data',$subjects->uuid) }}" class="text-decoration-none text-dark">{{ $subjects->subject.' - '.$subjects->yearLevel.''.$subjects->section.' by '. $subjects->teacher->name }}</a>
                                                 </td>

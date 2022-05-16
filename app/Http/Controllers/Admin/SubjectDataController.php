@@ -17,7 +17,12 @@ class SubjectDataController extends Controller
         $subject = Subject::where("teacher_id", "=", Auth::user()->id)->get();
         $sub = collect($subjects)->first();
         $lesson = Lesson::with('student','grades')->withTrashed()->where('subject_id', $sub)->get();
-        return view('admin.subject_Data', compact('subject', 'lesson'), ['subjects' => $subjects]);
+        foreach ( $subject as $subjects)
+        {
+            $teacher= $subjects->teacher->name ;
+            $teach= $subjects->teacher->image ;
+        }
+        return view('admin.subject_Data', compact('subject', 'lesson','teacher','teach'), ['subjects' => $subjects]);
     }
     public function update(int $id, Request $request)
     {

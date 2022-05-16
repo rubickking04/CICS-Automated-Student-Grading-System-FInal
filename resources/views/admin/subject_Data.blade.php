@@ -58,6 +58,27 @@
                                 <div class="card-title">
                                     <div class="row border-bottom border-2 border-primary">
                                         <div class="col-lg-6 col-6">
+                                            <div class="text-start fs-4 fw-bold card-title">{{ __('Teacher') }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive py-2 mb-1">
+                                        <table class="">
+                                            <tbody>
+                                                <tr>
+                                                    <td  class="text-end py-2 col-lg-1 col-1" scope="row">
+                                                        @if($teach)
+                                                            <img src="{{ asset('/storage/images/'.$teach)}}" class="rounded-circle" alt="" width="35" height="35">
+                                                        @else
+                                                            <img src="{{ asset('/storage/images/avatar.png')}}" alt="..." width="35" height="35" class="rounded-circle">
+                                                        @endif
+                                                    </td>
+                                                    <td  class="text-start fw-bold h5 py-3 px-3 text-truncate" scope="row"><a href="#" class="text-dark text-decoration-none">{{ $teacher }} </a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row border-bottom border-2 border-primary">
+                                        <div class="col-lg-6 col-6">
                                             <div class="text-start fs-4 fw-bold card-title text-truncate">{{ __('Students') }}</div>
                                         </div>
                                         <div class="col-lg-6 col-6">

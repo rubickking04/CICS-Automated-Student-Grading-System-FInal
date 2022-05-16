@@ -1,16 +1,16 @@
 @extends('admin.layouts.sidebar')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card shadow" style="border-radius: 20px">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <div class="col-lg-11 col-11">
+                        <div class="col-lg-11 col-12">
                             <div class="row border-bottom border-2 border-primary">
                                 <div class="col-lg-8 col-md-7 col-sm-6 col-6 d-none d-sm-block">
-                                    <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Students') }}</div>
+                                    <div class="text-start py-3 fs-4 fw-bold card-title">{{ __('Students Table') }}</div>
                                 </div>
                                 <div class="col-lg-4 col-md-5 col-sm-6 col-12 py-3">
                                     <form action="{{ route('admin.searchStudent')}}" method="GET" role="search" class="d-flex">
@@ -58,10 +58,10 @@
                                                 @if($users->image)
                                                     <img src="{{ asset('/storage/images/'.$user->image)}}" class="img-fluid" alt="">
                                                 @else
-                                                    <img src="{{ asset('/storage/images/avatar.png')}}" alt="hugenerd" width="40" height="40" class="rounded-circle">
+                                                    <img src="{{ asset('/storage/images/avatar.png')}}" alt="hugenerd" width="35" height="35" class="rounded-circle">
                                                 @endif
                                             </td>
-                                            <td  class="text-start fw-bold h6 py-3" scope="row">{{ $users->name }}</td>
+                                            <td  class="text-start fw-bold h6 py-3 text-truncate" scope="row">{{ $users->name }}</td>
                                             <td  class="text-start" scope="row">{{ __(' ') }}</td>
                                             <td  class="text-end" scope="row">
                                                 <div class="dropdown">
