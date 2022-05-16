@@ -27,6 +27,7 @@ class TeacherRegisterController extends Controller
             'gender' =>'required|string',
             'birth_date'=>'required|string|max:255',
             'password' => 'required|min:6',
+            'password' => 'required|confirmed|min:6',
         ]);
         $teacher = Teacher::create([
             'name' => $request->input('name'),
