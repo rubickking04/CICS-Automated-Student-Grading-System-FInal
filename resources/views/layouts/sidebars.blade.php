@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <meta name="theme-color" content="#424242"/>
+    <meta name="theme-color" content="#212121"/>
     <link rel="apple-touch-icon" href="{{ asset('logo.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
