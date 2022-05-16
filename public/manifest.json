@@ -5,7 +5,7 @@
     "background_color": "#42a5f5",
     "description": "Automatic Class Grading System",
     "display": "standalone",
-    "theme_color": "#0277bd",
+    "theme_color": "#424242",
     "icons": [
         {
             "src": "logo.png",
