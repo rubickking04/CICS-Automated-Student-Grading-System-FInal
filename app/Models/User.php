@@ -25,6 +25,8 @@ class User extends Authenticatable
         'gender',
         'phone',
         'student_type',
+        'curriculum_year',
+        'section',
         'student_status',
         'birth_date',
         'password',
