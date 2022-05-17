@@ -39,7 +39,7 @@ class SubjectController extends Controller
                     'description' => $sub->description,
                     'subject' => $sub->subject,
                     'yearLevel' =>$sub->yearLevel,
-                    'room' => $sub->room,
+                    'semester' => $sub->semester,
                     'section' => $sub->section,
                 ]);
                 Alert::toast('New Class Added!', 'success');

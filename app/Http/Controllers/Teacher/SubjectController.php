@@ -21,7 +21,7 @@ class SubjectController extends Controller
         $request->validate([
             'description'=>'required|string|max:255',
             'section' => 'required|string|max:255',
-            'room' => 'nullable|string|max:255',
+            'semester' => 'required|string|max:255',
             'yearLevel' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
         ]);
@@ -29,7 +29,7 @@ class SubjectController extends Controller
             'uuid'=> Str::uuid()->toString(),
             'teacher_id' => Auth::user()->id,
             'subject' =>$request->input('subject'),
-            'room' => $request->input('room'),
+            'semester' => $request->input('semester'),
             'section' => $request->input('section'),
             'yearLevel' => $request->input('yearLevel'),
             'description' => $request->input('description'),

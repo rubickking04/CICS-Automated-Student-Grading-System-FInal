@@ -62,8 +62,17 @@
                                 @enderror
                             </div>
                             <div class="col-lg form-floating mb-2">
-                                <input name="room" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">{{ __('Room') }}</label>
+                                <select name="semester" type="text" class="form-select  @error('semester') is-invalid @enderror" id="floatingInput" placeholder="name@example.com">
+                                    <option disabled selected>{{ __('Select semester') }}</option>
+                                    <option value="1">{{ __('1st Semester') }}</option>
+                                    <option value="2">{{ __('2nd Semester') }}</option>
+                                </select>
+                                <label for="floatingInput">{{ __('Semester') }}</label>
+                                @error('semester')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>

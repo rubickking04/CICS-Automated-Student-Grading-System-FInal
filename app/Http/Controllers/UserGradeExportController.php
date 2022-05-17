@@ -17,18 +17,24 @@ class UserGradeExportController extends Controller
     public function index()
     {
         $lesson = Lesson::with('teachers', 'grades')->where('user_id', '=', Auth::user()->id)->latest()->get();
-        return view('grade', compact('lesson'));
+        foreach ( $lesson as $lessons)
+        {
+            $sem= $lessons->semester;
+            $g =  $lessons->grades;
+        }
+        return view('grade', compact('lesson','sem'));
+        // dd($grade->sem);
     }
     public function export()
     {
-        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->get();
+        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->latest()->get();
         view('grade', compact('lesson'));
         $pdf = PDF::loadView('download',['lesson'=>$lesson]);
         return $pdf->download('My Grades.pdf');
     }
     public function viewPdf(User $users)
     {
-        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->get();
+        $lesson = Lesson::with('teachers')->where('user_id', '=', Auth::user()->id)->latest()->get();
         view('grade', compact('lesson'));
         $pdf = PDF::loadView('download',['lesson'=>$lesson]);
         return $pdf->stream('My Grades.pdf');

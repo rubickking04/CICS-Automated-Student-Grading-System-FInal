@@ -35,6 +35,7 @@
                                 </div>
                             </div>
                             <div class="table-responsive py-2">
+                                {{-- <h5 class="card-title fw-bold">{{ __('1st Semester') }}</h5> --}}
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr class="table-primary">
@@ -76,6 +77,50 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{-- @elseif($sem == 2)
+                                <h5 class="card-title fw-bold">{{ __('2nd Semester') }}</h5>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="table-primary">
+                                            <th class="text-center" scope="col">{{ __('Subject') }}</th>
+                                            <th class="text-center" scope="col">{{ __('Midterm') }}</th>
+                                            <th class="text-center" scope="col">{{ __('Finalterm') }}</th>
+                                            <th class="text-center" scope="col">{{ __('Total') }}</th>
+                                            <th class="text-center" scope="col">{{ __('Remarks') }}</th>
+                                            <th class="text-center" scope="col">{{ __('Instructor') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($lesson as $lessons )
+                                        @if (empty($lessons->grades))
+                                        <tr>
+                                            <td class="text-start" scope="row">{{ $lessons->subject.' - '.$lessons->description }}</td>
+                                            <td class="text-start" scope="row">{{ __(' ') }}</td>
+                                            <td class="text-start" scope="row">{{ __(' ') }}</td>
+                                            <td class="text-start" scope="row">{{ __(' ') }}</td>
+                                            <td class="text-start" scope="row">{{ __(' ') }}</td>
+                                            <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td>
+                                        </tr>
+                                        @else
+                                        <tr>
+                                            <td class="text-start" scope="row">{{ $lessons->subject.' - '.$lessons->description }}</td>
+                                            <td class="text-center" scope="row">{{ $lessons->grades->midterm }}</td>
+                                            <td class="text-center" scope="row">{{ $lessons->grades->finalterm }}</td>
+                                            <td class="text-center" scope="row">{{ round(($lessons->grades->midterm + $lessons->grades->finalterm)/2, 2) }}</td>
+                                            @if(round(($lessons->grades->midterm + $lessons->grades->finalterm)/2, 2) == 0)
+                                                <td class="text-center  text-danger fw-bold" scope="row">{{ __('FAILED') }}</td>
+                                            @elseif(round(($lessons->grades->midterm + $lessons->grades->finalterm)/2, 2) <= 3)
+                                                <td class="text-center text-primary fw-bold" scope="row">{{ __('PASSED') }}</td>
+                                            @else
+                                                <td class="text-center  text-danger fw-bold" scope="row">{{ __('FAILED') }}</td>
+                                            @endif
+                                            <td class="text-center" scope="row">{{ $lessons->teachers->name }}</td>
+                                        </tr>
+                                        @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                @endif --}}
                             </div>
                         </div>
                     <div class="text-end">

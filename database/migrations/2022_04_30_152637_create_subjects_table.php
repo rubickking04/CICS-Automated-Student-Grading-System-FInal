@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('subject')->nullable();
             $table->string('description')->nullable();
             $table->string('yearLevel')->nullable();
-            $table->string('room')->nullable();
+            $table->string('semester')->nullable();
             $table->string('section')->nullable();
             $table->timestamps();
         });

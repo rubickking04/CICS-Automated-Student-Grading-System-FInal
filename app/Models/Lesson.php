@@ -15,7 +15,7 @@ class Lesson extends Model
         'subject_id',
         'uuid',
         'subject',
-        'room',
+        'semester',
         'yearLevel',
         'section',
         'description',
