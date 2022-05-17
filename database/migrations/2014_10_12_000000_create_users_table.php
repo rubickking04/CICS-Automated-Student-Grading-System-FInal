@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('student_type')->nullable();
             $table->string('student_status')->nullable();
+            $table->string('curriculum_year')->nullable();
+            $table->string('section')->nullable();
             $table->string('gender')->nullable();
             $table->string('birth_date')->nullable();
             $table->string('password');

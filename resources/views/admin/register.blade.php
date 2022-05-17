@@ -67,7 +67,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <label for="student_status" class="col-form-label">{{ __('Status of Registration') }}</label>
                                 <select name="student_status" id="student_type" class="form-control form-select my-select @error('student_status') is-invalid @enderror" name="student_status" value="{{ old('student_status') }}">
                                     <option disabled selected>Choose...</option>
@@ -82,8 +82,23 @@
                                         </span>
                                     @enderror
                             </div>
+                            <div class="col-md-2">
+                                <label for="section" class="col-form-label">{{ __('Section') }}</label>
+                                <select name="section" id="section" class="form-control form-select my-select @error('section') is-invalid @enderror" name="section" value="{{ old('section') }}">
+                                    <option disabled selected>Choose...</option>
+                                    <option value="A">{{ __('A') }}</option>
+                                    <option value="B">{{ __('B') }}</option>
+                                    <option value="C">{{ __('C') }}</option>
+                                    <option value="D">{{ __('D') }}</option>
+                                </select>
+                                    @error('section')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
                                 <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}">
                                 @error('phone')
@@ -93,7 +108,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="gender" class="col-form-label">{{ __('Gender') }}</label>
                                 <select id="gender" type="text" class="form-control form-select @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" autocomplete="gender" autofocus>
                                     <option disabled class="text-muted">{{ ('Choose your gender...') }}</option>
@@ -107,7 +122,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="birth_date" class="col-form-label">{{ __('Birthday') }}</label>
                                 <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}">
                                 @error('birth_date')
@@ -115,6 +130,22 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
+                                <select name="curriculum_year" id="curriculum_year" class="form-control form-select my-select @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ old('curriculum_year') }}">
+                                    <option disabled selected>Choose...</option>
+                                    <option value="1st year">{{ __('1st year') }}</option>
+                                    <option value="2nd year">{{ __('2nd year') }}</option>
+                                    <option value="3rd year">{{ __('3rd year') }}</option>
+                                    <option value="4th year">{{ __('4th year') }}</option>
+                                </select>
+                                    @error('curriculum_year')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
 
                             <div class="col-md-6">

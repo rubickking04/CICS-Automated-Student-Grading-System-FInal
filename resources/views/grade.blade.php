@@ -23,12 +23,15 @@
                         </div>
                         <div class="">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-7">
                                     <p class="h5 ">{{ __('Name: ') }}<strong> {{ Auth::user()->name }}</strong></p>
                                     <p class="h5">{{ __('Gender: ') }}<strong> {{ Auth::user()->gender }}</strong></p>
+                                    <p class="h5">{{ __('Student Status: ') }}<strong> {{ Auth::user()->student_status }}</strong></p>
                                 </div>
-                                <div class="col-lg-4">
-                                    <p class="h5 ">{{ __('Section: ') }}<strong> {{ __('D') }}</strong></p>
+                                <div class="col-lg-5">
+                                    <p class="h5 ">{{ __('Student Type: ') }}<strong> {{ Auth::user()->student_type }}</strong></p>
+                                    <p class="h5 ">{{ __('Section: ') }}<strong> {{ Auth::user()->section }}</strong></p>
+                                    <p class="h5 ">{{ __('Year Level: ') }}<strong> {{ Auth::user()->curriculum_year }}</strong></p>
                                 </div>
                             </div>
                             <div class="table-responsive py-2">
