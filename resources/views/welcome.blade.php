@@ -295,7 +295,8 @@
                             <p class="text-muted text-uppercase small fw-bolder" style="font-family: 'Montserrat', sans-serif;">{{ __('Programmer') }}</p>
                             <a href="https://www.facebook.com/alfhaigar.usman.1/"><span class="fs-1 px-1 bi bi-facebook"></span></a>
                             <a href="https://github.com/rubickking04"><span class="fs-1 px-2 bi bi-github text-dark"></span></a>
-                            <a href="https://www.instagram.com/kingrubick_04/"><span class="fs-1 bi bi-instagram text-danger"></span></a>
+                            <a href="https://www.instagram.com/kingrubick_04/"><span class="fs-1 bi bi-instagram px-1 text-danger"></span></a>
+                            <a href="https://alfhaigarusman04.herokuapp.com/"><span class="fs-1 bi bi-globe px-1 text-muted"></span></a>
                         </div>
                     </div>
                 </div>
