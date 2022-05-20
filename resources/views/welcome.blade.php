@@ -169,32 +169,7 @@
                     {{-- <p class="mb-4 h3 text-center d-none d-sm-block" style="font-family: sans-serif;">{{ __('Wanna Be I.T. Team Provides these feaatures 😉') }}</p> --}}
                     <p class="mb-4 h5 text-center d-none d-sm-block fw-bolder" style="font-family: 'Montserrat', sans-serif;">{{ __('Manage your dashboard anywhere, We’ve got you covered. 😉') }}</p>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-3 shadow-5-strong hover-shadow h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
-                                <div class="card-body">
-                                    <div class="h-100 p-3 text-center">
-                                        <h2 class="fw-bold" style="font-family: 'Montserrat', sans-serif;">{{ __('Admin') }}</h2>
-                                        <div class="table-responsive mb-3">
-                                            <table class="w3-table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center fw-bold py-2 col-lg-1 small" scope="row" style="font-family: 'Montserrat', sans-serif;"><i class="text-success p-1 fs-6 fa-solid fa-circle-check "></i>{{ __('Manages faculty') }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center fw-bold py-2 col-lg-1 small" scope="row" style="font-family: 'Montserrat', sans-serif;"><i class="text-success p-1 fs-6 fa-solid fa-circle-check "></i>{{ __('Registers Student and Teachers account') }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center h5 py-2 col-lg-1 fw-bold small" scope="row" style="font-family: 'Montserrat', sans-serif;"><i class="text-success p-1 fs-6 fa-solid fa-circle-check "></i>{{ __('Send notifications to faculty via Email and more...') }}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <a href="{{ route('admin.home') }}" class="btn btn-outline-dark fw-bolder shadow-5-strong" style="border-radius:20px; font-family: 'Montserrat', sans-serif; font-size: 16px;"><i class="fa-solid fa-right-to-bracket px-2"></i>{{ __('Manage now!') }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 ">
+                        <div class="col-lg-6 col-md-6 col-sm-12 ">
                             <div class="card mb-3 shadow-5-strong h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
                                 <div class="card-body">
                                     <div class=" p-3 text-center">
@@ -219,7 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="card mb-3 shadow-5-strong h-auto" style="border-radius:20px; background-color: #b3e5fc" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear" data-aos-duration="500">
                                 <div class="card-body">
                                     <div class=" p-3 text-center ">
