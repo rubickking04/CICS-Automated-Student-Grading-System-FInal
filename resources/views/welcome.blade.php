@@ -78,7 +78,7 @@
         </nav>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark  text-white shadow-sm  sticky-top" aria-current="page">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('admin.home') }}">
                     <img class="d-inline-block align-top" src="{{asset('/storage/images/logo.png')}}" height="40" width="40">
                 </a>
                 <button class="navbar-toggler" onclick="myFunction(this)" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
