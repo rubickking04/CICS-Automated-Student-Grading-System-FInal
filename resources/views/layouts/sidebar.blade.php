@@ -65,7 +65,7 @@
                 <h6 class="offcanvas-title" id="offcanvas">
                     {{-- <button type="button" class="btn-close align-items-end btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
                     <a href="{{ url('/') }}" class="d-flex justify-content-center align-items-center mb-auto mb-md-0 text-center me-md-auto text-white text-decoration-none">
-                        <img class="d-inline-block align-top rounded-circle border border-info border-3" src="{{asset('/storage/images/usman.jpg')}}" height="60" width="60">
+                        <img class="d-inline-block align-top rounded-circle border border-info border-3" src="{{asset('/storage/images/avatar.png')}}" height="60" width="60">
                     </a>
                     <span class="container fs-4">{{ Auth::user()->name }}</span>
                     <a class="nav-link"><span class="text-info d-flex justify-content-center  text-uppercase small">{{ __('Student\'s Name') }}</span>
