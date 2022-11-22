@@ -12,12 +12,9 @@ class ClassController extends Controller
 {
     public function index(Lesson $lesson, Subject $subjects, Request $request)
     {
-        $sub = collect($subjects)->first();
-        $les = Lesson::with('student','grades')->where('subject_id', '=', $lesson->subject_id)->latest()->get();
-        $lesson = Lesson::with('teachers', 'student')->where('user_id', '=', Auth::user()->id)->latest()->get();
-        foreach ($les as $lessons)
-        {
-            $less= $lessons->teachers->name;
+        $les = Lesson::with('student', 'grades')->where('subject_id', '=', $lesson->subject_id)->latest()->get();
+        foreach ($les as $lessons) {
+            $less = $lessons->teachers->name;
             $teach = $lessons->teachers->image;
             $uuid = $lessons->uuid;
             $subject = $lessons->subject;
@@ -27,7 +24,7 @@ class ClassController extends Controller
             $year = $lessons->yearLevel;
             $grade = $lessons->grades;
         }
-        return view('class', compact('lesson','less', 'les', 'teach','uuid', 'subject', 'description','section', 'id', 'year','grade'),['lesson'=>$lesson]);
-        // dd($less);
+        // return view('class', compact('lesson','less', 'les', 'teach','uuid', 'subject', 'description','section', 'id', 'year','grade'),['lesson'=>$lesson]);
+        dd($les);
     }
 }

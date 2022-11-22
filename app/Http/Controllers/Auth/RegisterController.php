@@ -66,10 +66,10 @@ class RegisterController extends Controller
             'gender' => ['required', 'string',],
             'phone' => ['required', 'string', 'max:15'],
             'birth_date' => ['required', 'string', 'max:255'],
-            'curriculum_year'=>['required', 'string', 'max:255'],
-            'section'=>['required', 'string', 'max:255'],
-            'student_type'=>['required', 'string', 'max:255'],
-            'student_status'=>['required', 'string', 'max:255'],
+            'curriculum_year' => ['required', 'string', 'max:255'],
+            'section' => ['required', 'string', 'max:255'],
+            'student_type' => ['required', 'string', 'max:255'],
+            'student_status' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -95,7 +95,7 @@ class RegisterController extends Controller
             'birth_date' =>  $data['birth_date'],
             'password' => Crypt::encrypt($data['password']),
         ]);
-        Mail::to($data['email'])->send(new WelcomeMail($user));
+        // Mail::to($data['email'])->send(new WelcomeMail($user));
         Alert::toast('Successfully Registered!', 'success');
         return $user;
     }
